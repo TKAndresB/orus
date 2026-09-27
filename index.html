@@ -146,7 +146,7 @@ body.boxed .shell{max-width:1240px}
 .pw-stats{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
 .pw-stat{background:var(--soft);border-radius:999px;padding:5px 11px;font-size:11.5px;font-weight:700;color:var(--green-dark);white-space:nowrap}
 .pw-stat.late{background:rgba(176,101,95,.15);color:var(--danger)}
-.pw-hero .archived-flag{background:rgba(0,0,0,.1);color:var(--muted);border-radius:999px;padding:5px 11px;font-size:11.5px;font-weight:700}
+.archived-flag{background:rgba(0,0,0,.1);color:var(--muted);border-radius:999px;padding:5px 11px;font-size:11.5px;font-weight:700}
 .pw-tabs{display:flex;gap:4px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:999px;box-shadow:inset 0 1px 0 var(--glass-highlight), var(--glass-shadow);padding:6px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none;-webkit-backdrop-filter:blur(16px) saturate(160%);backdrop-filter:blur(16px) saturate(160%)}
 .pw-tabs::-webkit-scrollbar{display:none}
 .pw-tabs button{flex:1 0 auto;padding:9px 15px;border-radius:999px;font-weight:600;color:var(--muted);white-space:nowrap}
@@ -246,9 +246,7 @@ body.boxed .shell{max-width:1240px}
 .pwp-toolbar button.active{background:var(--mint)}
 .pwp-toolbar .pwp-pg{font-size:11.5px;color:var(--muted);white-space:nowrap;padding:0 2px}
 .pwp-stage{flex:1;overflow:auto;display:flex;flex-direction:column;align-items:center;gap:12px;padding:12px}
-.pwp-stage canvas{max-width:100%;box-shadow:var(--shadow);border-radius:4px}
-.pwp-stage.pwp-scroll{gap:16px}
-.pwp-page{min-height:160px;display:flex;justify-content:center;width:100%}
+.pwp-stage canvas{max-width:100%;height:auto;box-shadow:var(--shadow);border-radius:4px}
 /* ---- Kanban de tareas del proyecto (columnas lado a lado, sin scroll vertical de página) ---- */
 .kanban{display:grid;grid-template-columns:repeat(4,minmax(128px,1fr));gap:8px;overflow-x:auto;padding-bottom:2px}
 .kanban-col{background:var(--soft);border-radius:14px;padding:9px;display:flex;flex-direction:column;gap:7px;min-width:0}
@@ -292,23 +290,23 @@ body.boxed .shell{max-width:1240px}
 .fp-body img{max-width:100%;max-height:70vh;border-radius:8px}
 .fp-body video{max-width:100%;max-height:70vh;border-radius:8px}
 .fp-body embed,.fp-body iframe{width:100%;height:70vh;border:0;border-radius:8px;background:#fff}
-.sp-modal{width:min(920px,96vw);max-height:90vh}
-.sp-hero{flex:none;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.sp-hero{flex:none;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:16px 18px}
+.sp-hero-page{border:1px solid var(--line);border-radius:var(--r);background:var(--card);box-shadow:var(--shadow);margin-bottom:14px}
 .sp-avg{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:15px;flex:none}
 .sp-hero-info{display:flex;flex-direction:column;gap:3px;min-width:0}
 .sp-hero-name{font-size:16px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:flex;align-items:center}
 .sp-hero-meta{font-size:11.5px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap}
-.sp-next{margin-left:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 12px;font-size:11.5px;color:var(--green-dark);font-weight:700;white-space:nowrap}
-.sp-tabs{display:flex;gap:4px;padding:8px 14px 0;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none;flex:none}
+.sp-next{margin-left:auto;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:6px 12px;font-size:11.5px;color:var(--green-dark);font-weight:700;white-space:nowrap}
+.sp-tabs{display:flex;gap:4px;padding:6px;border:1px solid var(--line);border-radius:14px;background:var(--soft);overflow-x:auto;scrollbar-width:none;flex:none;margin-bottom:14px}
 .sp-tabs::-webkit-scrollbar{display:none}
-.sp-tabs button{white-space:nowrap;padding:8px 14px;border-radius:10px 10px 0 0;font-weight:700;font-size:12.5px;color:var(--muted)}
+.sp-tabs button{white-space:nowrap;padding:9px 15px;border-radius:10px;font-weight:700;font-size:12.5px;color:var(--muted)}
 .sp-tabs button.active{background:var(--mint);color:var(--green-dark)}
-.fp-body.sp-body{display:block;align-items:stretch;justify-content:flex-start;text-align:left;padding:16px}
+.sp-body{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:clamp(14px,2vw,20px)}
 .sp-mat-actions{display:flex;gap:8px;flex-wrap:wrap}
 .sp-mat-filter{display:flex;gap:6px;flex-wrap:wrap}
 .sp-mat-filter button{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:11.5px;font-weight:700;color:var(--muted)}
 .sp-mat-filter button.active{background:var(--mint);color:var(--green-dark);border-color:transparent}
-.sp-mat-grid{display:grid;gap:10px;margin-top:4px}
+.sp-mat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;margin-top:4px;align-items:start}
 .sp-mat-card{background:var(--soft);border-radius:12px;padding:10px 12px}
 .sp-mat-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
 .sp-mat-note{margin-top:6px;font-size:12.5px;color:var(--ink);white-space:pre-wrap}
@@ -318,7 +316,7 @@ body.boxed .shell{max-width:1240px}
 .sp-mat-meta{font-size:10.5px;color:var(--muted);margin-top:6px}
 .sp-task-group{font-weight:700;font-size:12px;color:var(--ink);margin:12px 0 4px}
 .sp-task-group.warn{color:var(--danger)}
-@media(max-width:680px){.sp-modal{width:96vw;max-height:92vh}.sp-next{margin-left:0}}
+@media(max-width:680px){.sp-next{margin-left:0}}
 .fp-generic{text-align:center;color:var(--muted)}
 body.dark .proj-card .cover .tag{background:rgba(30,42,36,.82);color:#cfe8d8}
 .file-item .file-preview{display:none;position:absolute;left:0;top:100%;z-index:30;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px rgba(30,54,40,.2);padding:6px;width:220px;max-height:260px;overflow:hidden}
@@ -481,7 +479,7 @@ article.vision.has-img p{color:#fff}
 #orusBubble .op-dot.show{display:block}
 #orusPanel{position:fixed;right:18px;bottom:calc(82px + env(safe-area-inset-bottom,0px));z-index:91;width:min(360px,92vw);max-height:min(560px,78vh);display:none;flex-direction:column;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:20px;box-shadow:inset 0 1px 0 var(--glass-highlight), 0 20px 50px rgba(30,54,40,.3);-webkit-backdrop-filter:blur(22px) saturate(160%);backdrop-filter:blur(22px) saturate(160%);overflow:hidden}
 #orusPanel.open{display:flex}
-#orusPanel .op-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px;border-bottom:1px solid var(--glass-border);font-weight:700;cursor:grab;touch-action:none}
+#orusPanel .op-head{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding:12px 14px;border-bottom:1px solid var(--glass-border);font-weight:700;cursor:grab;touch-action:none}
 #orusPanel .op-head .op-title{display:flex;flex-direction:column;line-height:1.25}
 #orusPanel .op-head .op-title small{font-weight:400;font-size:11px;color:var(--muted)}
 #orusPanel .op-close{background:none;border:0;font-size:20px;color:var(--muted);min-height:32px;min-width:32px;cursor:pointer;line-height:1}
@@ -500,9 +498,23 @@ article.vision.has-img p{color:#fff}
 #orusPanel .op-ctx{padding:8px 14px;border-top:1px dashed var(--glass-border);display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;color:var(--muted)}
 #orusPanel .op-ctx label.switch{transform:scale(.8);transform-origin:right center}
 #orusPanel .op-keyrow{display:none;flex-direction:column;gap:6px;padding:10px 14px;border-top:1px dashed var(--glass-border);font-size:11.5px}
-#orusPanel .op-keyrow input{border-radius:10px;border:1px solid var(--line);padding:7px 10px;background:var(--card);color:var(--ink);font-size:12.5px}
+#orusPanel .op-keyrow input,#orusPanel .op-keyrow select{border-radius:10px;border:1px solid var(--line);padding:7px 10px;background:var(--card);color:var(--ink);font-size:12.5px;min-height:0}
 #orusPanel .op-keyrow button{align-self:flex-end;border-radius:10px;border:0;background:var(--green-dark);color:#fff;padding:6px 12px;cursor:pointer;font-size:12px}
 #orusPanel .op-keyrow a{color:var(--muted);text-decoration:underline}
+#orusPanel .op-provrow{display:flex;align-items:center;gap:6px}
+#orusPanel .op-provrow select{flex:1}
+.op-freetag{flex:none;font-size:10px;font-weight:700;border-radius:999px;padding:4px 8px;white-space:nowrap}
+.op-freetag.free{background:var(--mint);color:var(--green-dark)}
+.op-freetag.paid{background:var(--pink);color:#9e5259}
+#orusPanel .op-usage{color:var(--muted);font-size:10.5px;line-height:1.35}
+#orusPanel .op-usage b{color:var(--ink)}
+#orusPanel .op-usagebar{height:5px;background:#e6ede6;border-radius:999px;overflow:hidden;margin-top:3px}
+#orusPanel .op-usagebar i{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .25s}
+#orusPanel .op-usagebar i.hot{background:var(--danger)}
+#orusPanel .op-limitwarn{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:rgba(176,101,95,.12);border:1px solid var(--danger);border-radius:10px;padding:8px 9px;margin-top:6px;color:var(--danger);font-weight:700;font-size:11px}
+#orusPanel .op-limitwarn button{flex:none;background:var(--danger);color:#fff;border-radius:8px;padding:5px 9px;font-size:10.5px;font-weight:700;border:0;cursor:pointer}
+@keyframes orusPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.25)}}
+#orusBubble .op-dot.warn{animation:orusPulse 1.1s infinite}
 .toast button{color:#cfe8d8;font-weight:700;font-size:12px}
 kbd{background:var(--soft);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;font-size:11px;font-family:inherit}
 
@@ -745,6 +757,8 @@ body.dark .sticky-del:hover{background:rgba(255,255,255,.12)}
 .lib-card{position:relative;cursor:pointer;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;overflow:hidden;box-shadow:inset 0 1px 0 var(--glass-highlight), var(--shadow);transition:transform .15s}
 .lib-card-x{position:absolute;top:6px;right:6px;z-index:2;width:24px;height:24px;min-height:0;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:12px;line-height:1;display:grid;place-items:center}
 .lib-card-x:hover{background:rgba(176,101,95,.9)}
+.lib-card-edit{position:absolute;top:6px;right:34px;z-index:2;width:24px;height:24px;min-height:0;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:12px;line-height:1;display:grid;place-items:center}
+.lib-card-edit:hover{background:rgba(123,165,137,.95)}
 .lib-h-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:16px 0 8px}
 .lib-h-row .lib-h{margin:0}
 .lib-card:hover{transform:translateY(-3px)}
@@ -1017,6 +1031,10 @@ body.dark .lib-cover.th-busy::after{background:linear-gradient(90deg,transparent
     <div class="col">
       <div class="card">
         <div class="card-head"><h2>Materias</h2><button class="link" id="addSubject">＋ Nueva materia</button></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin:-6px 0 8px">
+          <select id="subjSemesterFilter" style="min-height:34px;padding:4px 8px;font-size:12px;flex:1 1 140px"></select>
+          <button class="ghost" id="subjToggleArchived" style="padding:6px 10px;font-size:12px">📦 Ver archivadas</button>
+        </div>
         <div class="stack" id="schedSubjects"></div>
       </div>
       <div class="card">
@@ -1035,9 +1053,17 @@ body.dark .lib-cover.th-busy::after{background:linear-gradient(90deg,transparent
           <span class="pill">Promedio: <b id="gpaPill">—</b></span>
         </div>
         <div class="sub" style="margin-top:-4px">Toca una materia para registrar notas y faltas.</div>
+        <div class="stack" id="gradesRisk"></div>
         <div class="stack" id="schedGrades"></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="page" id="subjectWorkspace">
+  <div class="pw-layout">
+    <div class="pw-main" id="spPageContent"></div>
+    <aside class="pw-side" id="spSide"></aside>
   </div>
 </section>
 
@@ -1376,8 +1402,22 @@ function normalizeSubjects(){
     if(!Array.isArray(s.grades))s.grades=[];
     if(!Array.isArray(s.materials))s.materials=[];
     if(typeof s.credits!=='number'||s.credits<=0)s.credits=3;
-    if(typeof s.faltas!=='number'||s.faltas<0)s.faltas=0;
     if(typeof s.maxFaltas!=='number'||s.maxFaltas<=0)s.maxFaltas=null;
+    // Migración: el contador simple de faltas (número) pasa a ser un registro con fecha y motivo.
+    if(!Array.isArray(s.faltaLog)){
+      const n=typeof s.faltas==='number'&&s.faltas>0?s.faltas:0;
+      s.faltaLog=Array.from({length:n},()=>({id:uid(),date:'',reason:''}));
+    }
+    s.faltas=s.faltaLog.length;
+    if(!Array.isArray(s.cortes))s.cortes=[];
+    if(typeof s.notaMinima!=='number'||s.notaMinima<=0)s.notaMinima=3;
+    if(typeof s.email!=='string')s.email='';
+    if(typeof s.officeHours!=='string')s.officeHours='';
+    if(typeof s.classroomUrl!=='string')s.classroomUrl='';
+    if(typeof s.syllabus!=='string')s.syllabus='';
+    if(typeof s.semester!=='string')s.semester='';
+    if(typeof s.archived!=='boolean')s.archived=false;
+    s.grades.forEach(g=>{if(typeof g.corte!=='string')g.corte=''});
   });
 }
 const findSubject=id=>state.subjects.find(s=>s.id===id);
@@ -1388,6 +1428,54 @@ const subjectAvg=s=>{
   if(totalW>0)return s.grades.reduce((a,g)=>a+(+g.score||0)*(+g.weight||0),0)/totalW;
   return s.grades.reduce((a,g)=>a+(+g.score||0),0)/s.grades.length;
 };
+/* ¿Qué nota necesito para pasar?: usa el peso ya evaluado (sobre 100) y proyecta el resto. */
+function subjectNeeded(s){
+  const totalW=s.grades.reduce((a,g)=>a+(+g.weight||0),0);
+  const remaining=100-totalW;
+  const min=s.notaMinima||3;
+  if(!s.grades.length)return{status:'sin-notas'};
+  if(remaining<=0){
+    const avg=subjectAvg(s);
+    return{status:avg>=min?'aprobado':'reprobado',avg,min};
+  }
+  const achieved=s.grades.reduce((a,g)=>a+(+g.score||0)*(+g.weight||0),0); // sobre 100
+  const required=(min*100-achieved)/remaining;
+  if(required<=0)return{status:'asegurado',min,remaining};
+  if(required>5)return{status:'imposible',required,min,remaining};
+  return{status:'posible',required,min,remaining};
+}
+/* Faltas: helpers de registro por fecha + motivo */
+function recalcFaltas(s){s.faltaLog=s.faltaLog||[];s.faltas=s.faltaLog.length}
+function faltaWarnLevel(s){
+  if(!s.maxFaltas)return null;
+  if(s.faltas>=s.maxFaltas)return'danger';
+  if(s.faltas===s.maxFaltas-1)return'warn';
+  return null;
+}
+function addFalta(s,date,reason){
+  undoSnapshot=snapshot();
+  s.faltaLog.push({id:uid(),date:date||'',reason:reason||''});
+  recalcFaltas(s);save();
+  const lvl=faltaWarnLevel(s);
+  if(lvl==='danger')toast(`⚠ Alcanzaste o superaste el límite de faltas en ${s.name}`);
+  else if(lvl==='warn')toast(`⚠ Estás a una falta del límite en ${s.name}`);
+  else toast('Falta registrada',true);
+}
+function deleteFalta(s,id){
+  undoSnapshot=snapshot();
+  s.faltaLog=s.faltaLog.filter(f=>f.id!==id);
+  recalcFaltas(s);save();toast('Falta eliminada',true);
+}
+/* Materias visibles: filtra archivadas y por semestre según los controles de la vista */
+let subjShowArchived=false,subjSemesterFilter='';
+function subjectSemesters(){
+  return[...new Set(state.subjects.map(s=>s.semester).filter(Boolean))].sort().reverse();
+}
+function visibleSubjects(){
+  return state.subjects.filter(s=>(subjShowArchived?s.archived:!s.archived)&&(!subjSemesterFilter||s.semester===subjSemesterFilter));
+}
+window.archiveSubject=id=>{const s=findSubject(id);if(!s)return;undoSnapshot=snapshot();s.archived=true;save();toast('Materia archivada',true);renderAll();if(spId===id)closeSubjectPanel()};
+window.unarchiveSubject=id=>{const s=findSubject(id);if(!s)return;undoSnapshot=snapshot();s.archived=false;save();toast('Materia restaurada',true);renderAll()};
 
 let undoSnapshot=null;
 // structuredClone evita el doble/triple copiado en memoria que hace JSON.stringify+parse
@@ -1502,7 +1590,7 @@ function closeModal(){$('#modalBack').classList.remove('open');$('#modalBody').i
 $('#modalBack').onclick=e=>{if(e.target===$('#modalBack'))closeModal()};
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&$('#modalBack').classList.contains('open')){closeModal();return}
-  if(e.key==='Escape'&&$('#spOverlay')){closeSubjectPanel();return}
+  if(e.key==='Escape'&&current==='subjectWorkspace'){closeSubjectPanel();return}
   if(e.key==='Tab'&&$('#modalBack').classList.contains('open')){
     const f=[...$('#modal').querySelectorAll('input,textarea,select,button,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);
     if(!f.length)return;
@@ -1545,10 +1633,11 @@ function openForm(title,fields,onSubmit,opts={}){
 let current='dashboard';
 function showPage(id){flushRest();
   if(typeof pwCloseFile==='function')pwCloseFile();
+  if(typeof spCloseFile==='function'&&id!=='subjectWorkspace')spCloseFile();
   current=id;
   if(id==='dashboard'&&typeof renderLibraryWidget==='function')renderLibraryWidget();
   $$('.page').forEach(p=>p.classList.toggle('active',p.id===id));
-  const navId=id==='projectWorkspace'?'projects':id;
+  const navId=id==='projectWorkspace'?'projects':id==='subjectWorkspace'?'horario':id;
   $$('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===navId));
   window.scrollTo({top:0,behavior:'smooth'});
   setTagline();
@@ -1576,7 +1665,7 @@ function buildSearchIndex(){
       label:f.name||'(Archivo)',sub:`En proyecto: ${p.name}${f.folder?' / '+f.folder:''}`,
       text:[f.name,f.folder].filter(Boolean).join(' ')}));
   });
-  (state.subjects||[]).forEach(s=>idx.push({type:'subject',id:s.id,
+  (state.subjects||[]).filter(s=>!s.archived).forEach(s=>idx.push({type:'subject',id:s.id,
     label:s.name||'(Materia)',sub:s.teacher||'Materia',
     text:[s.name,s.teacher].filter(Boolean).join(' ')}));
   (state.vision||[]).forEach(v=>idx.push({type:'vision',id:v.id,
@@ -1757,7 +1846,7 @@ function eventForm(ev,preset,presetSubjectId){
   const prOptions=[['','Sin prioridad'],['low','Baja'],['medium','Media'],['high','Alta']].map(([v,n])=>`<option value="${v}" ${(ev?.priority||'')===v?'selected':''}>${n}</option>`).join('');
   const diffOptions=[['','Sin dificultad'],['easy','Fácil'],['medium','Media'],['hard','Difícil']].map(([v,n])=>`<option value="${v}" ${(ev?.difficulty||'')===v?'selected':''}>${n}</option>`).join('');
   const projOptions=[['','Ninguno'],...state.projects.filter(p=>!p.done).map(p=>[p.id,p.name])].map(([v,n])=>`<option value="${v}" ${(ev?.projectId||'')===v?'selected':''}>${esc(n)}</option>`).join('');
-  const subjOptions=[['','Ninguna'],...[...state.subjects].sort((a,b)=>a.name.localeCompare(b.name)).map(s=>[s.id,s.name])].map(([v,n])=>`<option value="${v}" ${(ev?.subjectId||presetSubjectId||'')===v?'selected':''}>${esc(n)}</option>`).join('');
+  const subjOptions=[['','Ninguna'],...state.subjects.filter(s=>!s.archived||s.id===(ev?.subjectId||presetSubjectId)).sort((a,b)=>a.name.localeCompare(b.name)).map(s=>[s.id,s.name])].map(([v,n])=>`<option value="${v}" ${(ev?.subjectId||presetSubjectId||'')===v?'selected':''}>${esc(n)}</option>`).join('');
   const visOptions=[['','Ninguna'],...state.vision.map(v=>[v.id,v.title])].map(([v,n])=>`<option value="${v}" ${(ev?.visionId||'')===v?'selected':''}>${esc(n)}</option>`).join('');
   const body=`<form class="form" id="mForm">
     <label>Título<input name="title" value="${esc(ev?.title||'')}" placeholder="Ej. Estudiar cálculo" required/></label>
@@ -2933,6 +3022,33 @@ function pwThumbsObserve(){
   },{rootMargin:'400px'});
   $$('#pwFileGrid .lib-cover[data-pwth]').forEach(el=>pwThIO.observe(el));
 }
+let spThIO;
+function spThumbsObserve(){
+  spThIO?.disconnect();
+  spThIO=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){spThIO.unobserve(e.target);spThLoad(e.target)}});
+  },{rootMargin:'400px'});
+  $$('#spBody .lib-cover[data-spmth]').forEach(el=>spThIO.observe(el));
+}
+async function spThLoad(el){
+  const id=el.dataset.spmth;
+  let f=null;
+  for(const s of state.subjects){f=(s.materials||[]).find(x=>x.id===id);if(f)break}
+  if(!f)return;
+  el.classList.add('th-busy');
+  try{
+    let bu;
+    if(f.kind==='image'){
+      bu=await pwGetURL(f);
+    }else{
+      const k='pwth:'+f.id;let b=await idbGet(k);
+      if(!b){b=await pwThumb(f);if(b)await idbSet(k,b).catch(()=>{})}
+      if(b)bu=URL.createObjectURL(b);
+    }
+    if(bu&&el.isConnected){el.style.backgroundImage=`url(${bu})`;el.textContent='';if(f.kind==='video'||f.kind==='image')pwSetCoverOrient(el,bu)}
+  }catch(e){}
+  finally{el.classList.remove('th-busy')}
+}
 async function pwThLoad(el){
   const id=el.dataset.pwth,p=state.projects.find(x=>(x.files||[]).some(y=>y.id===id));
   const f=p&&p.files.find(x=>x.id===id);if(!f)return;
@@ -3025,17 +3141,15 @@ function pwOpenVideo(f,host){
 }
 async function pwOpenPdf(f,host){
   host.innerHTML=`<div class="pwp-toolbar">
-      <button data-m="book" class="active">📖 Libro</button>
-      <button data-m="scroll">📜 Continuo</button>
       <button data-a="prev">‹</button>
       <span class="pwp-pg">…</span>
       <button data-a="next">›</button>
       <button data-a="zout">－</button>
       <button data-a="zin">＋</button>
     </div>
-    <div class="pwp-stage" id="pwpStage"><p class="sub" style="padding:20px">Cargando PDF…</p></div>`;
+    <div class="pwp-stage" id="pwpStage" tabindex="-1"><p class="sub" style="padding:20px">Cargando PDF…</p></div>`;
   const toolbar=host.querySelector('.pwp-toolbar'),stage=host.querySelector('#pwpStage'),pgLbl=host.querySelector('.pwp-pg');
-  let mode='book',scale=f.zoom||1.3,page=f.page||1,pdf=null,numPages=0,io=null;const cache=new Map();
+  let scale=f.zoom||1.3,page=f.page||1,pdf=null,numPages=0;const cache=new Map();
   try{
     const blob=await pwGetBlob(f);
     if(!blob)throw new Error('archivo no encontrado');
@@ -3046,43 +3160,34 @@ async function pwOpenPdf(f,host){
     stage.innerHTML=`<p class="sub" style="padding:20px">No se pudo abrir el PDF: ${esc((e&&e.message)||'')}</p>`;
     return ()=>{};
   }
-  async function getPage(n,key){
-    const ck=key+n+'@'+scale;
+  async function getPage(n){
+    const ck=n+'@'+scale;
     if(cache.has(ck))return cache.get(ck);
     const cv=await pdfPage(pdf,n,scale);cache.set(ck,cv);return cv;
   }
-  async function renderBook(){
-    stage.className='pwp-stage';stage.innerHTML='';
-    stage.appendChild(await getPage(page,'b'));
+  async function render(){
+    stage.innerHTML='';
+    stage.appendChild(await getPage(page));
     pgLbl.textContent=`${page} / ${numPages}`;
     f.page=page;f.zoom=scale;pwBlockSave();
   }
-  function renderScroll(){
-    stage.className='pwp-stage pwp-scroll';stage.innerHTML='';
-    io?.disconnect();
-    const divs=[];
-    for(let i=1;i<=numPages;i++){const d=document.createElement('div');d.className='pwp-page';d.dataset.pg=i;stage.appendChild(d);divs.push(d)}
-    io=new IntersectionObserver(es=>{
-      es.forEach(e=>{
-        if(!e.isIntersecting)return;
-        const d=e.target;io.unobserve(d);if(d.dataset.done)return;d.dataset.done='1';
-        getPage(+d.dataset.pg,'s').then(cv=>{if(d.isConnected)d.appendChild(cv)});
-      });
-    },{root:stage,rootMargin:'700px'});
-    divs.forEach(d=>io.observe(d));
-    pgLbl.textContent=`${numPages} páginas`;
-  }
-  function render(){io?.disconnect();mode==='book'?renderBook():renderScroll()}
   render();
+  function goPrev(){page=Math.max(1,page-1);render()}
+  function goNext(){page=Math.min(numPages,page+1);render()}
   toolbar.onclick=e=>{
     const b=e.target.closest('button');if(!b)return;
-    if(b.dataset.m){mode=b.dataset.m;toolbar.querySelectorAll('[data-m]').forEach(x=>x.classList.toggle('active',x===b));render()}
-    else if(b.dataset.a==='prev'&&mode==='book'){page=Math.max(1,page-1);render()}
-    else if(b.dataset.a==='next'&&mode==='book'){page=Math.min(numPages,page+1);render()}
+    if(b.dataset.a==='prev')goPrev();
+    else if(b.dataset.a==='next')goNext();
     else if(b.dataset.a==='zin'){scale=Math.min(3,scale+.2);cache.clear();render()}
     else if(b.dataset.a==='zout'){scale=Math.max(.5,scale-.2);cache.clear();render()}
   };
-  return ()=>{io?.disconnect();pdf?.destroy();pdf=null};
+  function onKey(e){
+    if(e.target&&/input|textarea|select/i.test(e.target.tagName))return;
+    if(e.key==='ArrowLeft'){e.preventDefault();goPrev()}
+    else if(e.key==='ArrowRight'){e.preventDefault();goNext()}
+  }
+  document.addEventListener('keydown',onKey);
+  return ()=>{document.removeEventListener('keydown',onKey);pdf?.destroy();pdf=null};
 }
 function openFilePreview(f){
   closeFilePreview();
@@ -3614,15 +3719,29 @@ function subjectForm(s,onSaved){
   let color=s?.color||'mint';
   const body=`<form class="form" id="sForm">
     <label>Nombre de la materia<input name="name" value="${esc(s?.name||'')}" placeholder="Ej. Cálculo II" required/></label>
-    <label>Profesor (opcional)<input name="teacher" value="${esc(s?.teacher||'')}" placeholder="Ej. Prof. Gómez"/></label>
+    <div class="row2">
+      <label>Profesor (opcional)<input name="teacher" value="${esc(s?.teacher||'')}" placeholder="Ej. Prof. Gómez"/></label>
+      <label>Semestre / periodo (opcional)<input name="semester" value="${esc(s?.semester||'')}" placeholder="Ej. 2026-1"/></label>
+    </div>
     <div class="row2">
       <label>Créditos<input type="number" name="credits" min="1" step="1" value="${s?.credits||3}"/></label>
       <label>Faltas permitidas (opcional)<input type="number" name="maxFaltas" min="1" step="1" value="${s?.maxFaltas??''}" placeholder="Ej. 6"/></label>
+    </div>
+    <div class="row2">
+      <label>Nota mínima para pasar<input type="number" name="notaMinima" min="0" max="5" step="0.1" value="${s?.notaMinima??3}"/></label>
+      <label>Cortes/periodos de notas (opcional)<input name="cortes" value="${esc((s?.cortes||[]).join(', '))}" placeholder="Ej. Corte 1, Corte 2, Final"/></label>
     </div>
     <label>Color
       <div id="subjSwatches" style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap"></div>
       <input type="hidden" name="color" value="${esc(color)}"/>
     </label>
+    <div class="card-head" style="margin:6px 0 0"><h3>Contacto y aula virtual</h3></div>
+    <div class="row2">
+      <label>Correo del profesor (opcional)<input type="email" name="email" value="${esc(s?.email||'')}" placeholder="profesor@universidad.edu"/></label>
+      <label>Horario de atención (opcional)<input name="officeHours" value="${esc(s?.officeHours||'')}" placeholder="Ej. Mar 3-5pm, oficina 204"/></label>
+    </div>
+    <label>Enlace de aula virtual (opcional)<input type="url" name="classroomUrl" value="${esc(s?.classroomUrl||'')}" placeholder="https://classroom.google.com/..."/></label>
+    <label>Sílabo / criterios de evaluación (opcional)<textarea name="syllabus" style="min-height:90px" placeholder="Pega aquí los criterios de evaluación o un resumen del sílabo">${esc(s?.syllabus||'')}</textarea></label>
     <div class="modal-foot">
       ${isEdit?'<button type="button" class="link danger left" id="sDel">Eliminar</button>':''}
       <button type="button" class="ghost" id="sCancel">Cancelar</button>
@@ -3643,10 +3762,14 @@ function subjectForm(s,onSaved){
     e.preventDefault();
     const fd=Object.fromEntries(new FormData(e.target).entries());
     undoSnapshot=snapshot();
-    const it={name:fd.name,teacher:fd.teacher||'',color:fd.color||'mint',credits:Math.max(1,+fd.credits||3),maxFaltas:fd.maxFaltas?Math.max(1,+fd.maxFaltas):null};
+    const cortes=String(fd.cortes||'').split(',').map(x=>x.trim()).filter(Boolean);
+    const it={name:fd.name,teacher:fd.teacher||'',semester:fd.semester||'',color:fd.color||'mint',
+      credits:Math.max(1,+fd.credits||3),maxFaltas:fd.maxFaltas?Math.max(1,+fd.maxFaltas):null,
+      notaMinima:fd.notaMinima?Math.max(0,Math.min(5,+fd.notaMinima)):3,cortes,
+      email:fd.email||'',officeHours:fd.officeHours||'',classroomUrl:fd.classroomUrl||'',syllabus:fd.syllabus||''};
     let saved;
     if(s){Object.assign(s,it);saved=s;toast('Materia actualizada',true)}
-    else{saved={id:uid(),grades:[],faltas:0,...it};state.subjects.push(saved);toast('Materia añadida',true)}
+    else{saved={id:uid(),grades:[],faltas:0,faltaLog:[],materials:[],archived:false,...it};state.subjects.push(saved);toast('Materia añadida',true)}
     closeModal();renderAll();
     if(onSaved)onSaved(saved);
   };
@@ -3661,21 +3784,32 @@ window.deleteSubject=id=>{
   renderAll();toast('Materia eliminada',true);
 };
 $('#addSubject').onclick=()=>subjectForm();
+$('#subjToggleArchived').onclick=()=>{subjShowArchived=!subjShowArchived;$('#subjToggleArchived').textContent=subjShowArchived?'📚 Ver activas':'📦 Ver archivadas';renderSchedSubjects();renderGrades()};
+$('#subjSemesterFilter').onchange=e=>{subjSemesterFilter=e.target.value;renderSchedSubjects();renderGrades()};
+function renderSubjSemesterFilter(){
+  const sel=$('#subjSemesterFilter');if(!sel)return;
+  const sems=subjectSemesters();
+  if(!sems.length){sel.innerHTML='<option value="">Todos los semestres</option>';sel.value='';return}
+  sel.innerHTML=`<option value="">Todos los semestres</option>${sems.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('')}`;
+  sel.value=subjSemesterFilter;
+}
 
 function renderSchedSubjects(){
   const host=$('#schedSubjects');if(!host)return;
-  const subjects=[...state.subjects].sort((a,b)=>a.name.localeCompare(b.name));
+  renderSubjSemesterFilter();
+  const subjects=visibleSubjects().sort((a,b)=>a.name.localeCompare(b.name));
   host.innerHTML=subjects.length?subjects.map(s=>{
     const cc=schedColor(s.color);
     const classes=state.schedule.filter(c=>c.subjectId===s.id);
     const mins=classes.reduce((a,c)=>a+Math.max(0,timeToMin(c.end)-timeToMin(c.start)),0);
     const hrs=mins/60;
-    return`<div class="item" style="border:0;padding:6px 0;cursor:pointer" onclick="openSubjectPanel('${s.id}')">
+    return`<div class="item" style="border:0;padding:6px 0;cursor:pointer${s.archived?';opacity:.6':''}" onclick="openSubjectPanel('${s.id}')">
       <span style="width:14px;height:14px;border-radius:50%;background:${cc[2]};flex:none;display:inline-block"></span>
-      <div class="grow"><b>${esc(s.name)}</b><div class="sub">${classes.length} clase${classes.length===1?'':'s'} · ${(hrs%1===0?hrs:hrs.toFixed(1))} h/semana</div></div>
+      <div class="grow"><b>${esc(s.name)}${s.archived?' <span class="pill" style="background:var(--soft);color:var(--muted)">📦 Archivada</span>':''}</b><div class="sub">${classes.length} clase${classes.length===1?'':'s'} · ${(hrs%1===0?hrs:hrs.toFixed(1))} h/semana${s.semester?' · '+esc(s.semester):''}</div></div>
+      <button type="button" class="link" onclick="event.stopPropagation();${s.archived?'unarchiveSubject':'archiveSubject'}('${s.id}')" title="${s.archived?'Restaurar':'Archivar'} materia" style="padding:4px">${s.archived?'↩':'📦'}</button>
       <button type="button" class="link" onclick="event.stopPropagation();editSubject('${s.id}')" title="Editar materia" style="padding:4px">✎</button>
     </div>`;
-  }).join(''):empty('Sin materias todavía','Crea tu primera materia con "＋ Nueva materia".');
+  }).join(''):empty(subjShowArchived?'Sin materias archivadas':'Sin materias todavía',subjShowArchived?'Las materias que archives aparecerán aquí.':'Crea tu primera materia con "＋ Nueva materia".');
 }
 
 /* --- Panel de materia: vista detallada al tocar una materia --- */
@@ -3683,11 +3817,42 @@ let spId=null,spTab='info',spMatFilter='all';
 window.openSubjectPanel=(id,tab)=>{
   spId=id;spTab=tab||'info';spMatFilter='all';
   closeFilePreview();
+  spCloseFile();
+  showPage('subjectWorkspace');
   renderSubjectPanel();
 };
+window.openSubjectWorkspace=window.openSubjectPanel;
 function closeSubjectPanel(){
-  const ov=$('#spOverlay');if(ov)ov.remove();
   spId=null;
+  spCloseFile();
+  showPage('horario');
+}
+let spSideCleanup=null;
+function spCloseFile(){
+  if(spSideCleanup){try{spSideCleanup()}catch(e){}spSideCleanup=null}
+  const side=$('#spSide');if(side){side.classList.remove('open');side.innerHTML=''}
+}
+async function spOpenFile(f){
+  const side=$('#spSide');if(!side)return;
+  if(spSideCleanup){try{spSideCleanup()}catch(e){}spSideCleanup=null}
+  side.classList.add('open');
+  side.innerHTML=`<div class="pw-side-head"><b>${esc(f.title||'Archivo')}</b><div class="pw-side-tools"><button data-a="close">✕ Cerrar</button></div></div><div class="pw-side-body" id="spSideBody"></div>`;
+  side.querySelector('[data-a="close"]').onclick=spCloseFile;
+  const body=$('#spSideBody');
+  if(f.kind==='image'){
+    body.innerHTML=`<img alt=""/>`;
+    pwGetURL(f).then(u=>{const img=body.querySelector('img');if(img&&u)img.src=u});
+  }else if(f.kind==='video'){
+    spSideCleanup=pwOpenVideo(f,body);
+  }else if(f.kind==='pdf'){
+    spSideCleanup=await pwOpenPdf(f,body);
+  }else if(f.kind==='html'){
+    body.innerHTML=`<iframe sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer"></iframe>`;
+    pwGetURL(f).then(u=>{const ifr=body.querySelector('iframe');if(ifr&&u)ifr.src=u});
+  }else{
+    body.innerHTML=`<div class="pw-generic"><div style="font-size:34px">📎</div><p>Vista previa no disponible para este tipo de archivo.</p><a class="ghost" id="spGenericOpen" style="display:inline-block;margin-top:6px" target="_blank" rel="noopener">Abrir en pestaña nueva</a></div>`;
+    pwGetURL(f).then(u=>{const a=body.querySelector('#spGenericOpen');if(a&&u)a.href=u});
+  }
 }
 function nextClassOf(classes){
   if(!classes.length)return null;
@@ -3717,47 +3882,45 @@ function timeAgo(isoStr){
 }
 function renderSubjectPanel(){
   const s=findSubject(spId);
-  if(!s){closeSubjectPanel();return}
-  let ov=$('#spOverlay');
-  if(!ov){
-    ov=document.createElement('div');
-    ov.className='fp-overlay';ov.id='spOverlay';
-    document.body.appendChild(ov);
-    ov.onclick=e=>{if(e.target===ov)closeSubjectPanel()};
-  }
+  const host=$('#spPageContent');
+  if(!s||!host){if(current==='subjectWorkspace')closeSubjectPanel();return}
   const cc=schedColor(s.color);
   const classes=state.schedule.filter(c=>c.subjectId===s.id).sort((a,b)=>a.day-b.day||timeToMin(a.start)-timeToMin(b.start));
   const avg=subjectAvg(s);
-  const passed=avg!==null&&avg>=3;
+  const passed=avg!==null&&avg>=(s.notaMinima||3);
   const totalW=s.grades.reduce((a,g)=>a+(+g.weight||0),0);
   const avance=Math.max(0,Math.min(100,Math.round(totalW)));
   const pending=state.events.filter(e=>e.subjectId===s.id&&!e.done).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
   const done=state.events.filter(e=>e.subjectId===s.id&&e.done).sort((a,b)=>(b.date+b.time).localeCompare(a.date+a.time));
   const nc=nextClassOf(classes);
   const faltaWarn=s.maxFaltas&&s.faltas>=s.maxFaltas;
+  const faltaNear=s.maxFaltas&&s.faltas===s.maxFaltas-1;
   const TABS=[['info','Resumen'],['grades','Calificaciones'],['tasks',`Tareas${pending.length?' ('+pending.length+')':''}`],['materials',`Material${(s.materials||[]).length?' ('+s.materials.length+')':''}`]];
-  ov.innerHTML=`<div class="fp-box sp-modal">
-    <div class="sp-hero" style="background:${cc[2]}30">
+  host.innerHTML=`
+    <button class="link pw-back" onclick="closeSubjectPanel()">← Volver a materias</button>
+    <div class="sp-hero sp-hero-page" style="background:${cc[2]}30">
       <div class="sp-avg" style="background:${avg===null?'var(--soft)':passed?'var(--mint)':'rgba(176,101,95,.15)'};color:${avg===null?'var(--muted)':passed?'var(--green-dark)':'var(--danger)'}">${avg===null?'—':avg.toFixed(1)}</div>
       <div class="sp-hero-info">
         <div class="sp-hero-name"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${cc[2]};margin-right:6px;flex:none"></span>${esc(s.name)}</div>
         <div class="sp-hero-meta">
           ${s.teacher?`<span>👤 ${esc(s.teacher)}</span>`:''}
           <span>🎓 ${s.credits} crédito${s.credits===1?'':'s'}</span>
-          <span style="${faltaWarn?'color:var(--danger);font-weight:700':''}">📋 ${s.faltas} falta${s.faltas===1?'':'s'}${s.maxFaltas?'/'+s.maxFaltas:''}</span>
+          <span style="${faltaWarn?'color:var(--danger);font-weight:700':faltaNear?'color:#a87a1f;font-weight:700':''}">📋 ${s.faltas} falta${s.faltas===1?'':'s'}${s.maxFaltas?'/'+s.maxFaltas:''}</span>
+          ${s.semester?`<span>🗓 ${esc(s.semester)}</span>`:''}
+          ${s.archived?'<span class="archived-flag">📦 Archivada</span>':''}
         </div>
       </div>
       <div class="sp-next">${nc?`🕒 ${nc.label} · ${esc(nc.c.start)}${nc.c.room?' · '+esc(nc.c.room):''}`:'Sin clases programadas'}</div>
       <div style="display:flex;gap:6px;flex:none">
+        <button class="ghost" id="spArchive" style="padding:6px 10px;font-size:12px">${s.archived?'↩ Restaurar':'📦 Archivar'}</button>
         <button class="ghost" id="spEdit" style="padding:6px 10px;font-size:12px">✎ Editar</button>
-        <button class="link" id="spClose" style="padding:6px" title="Cerrar">✕</button>
       </div>
     </div>
     <div class="sp-tabs" id="spTabs">${TABS.map(([k,label])=>`<button data-spt="${k}" class="${spTab===k?'active':''}">${label}</button>`).join('')}</div>
-    <div class="fp-body sp-body" id="spBody"></div>
-  </div>`;
-  $('#spClose').onclick=closeSubjectPanel;
+    <div class="sp-body" id="spBody"></div>
+  `;
   $('#spEdit').onclick=()=>editSubject(s.id);
+  $('#spArchive').onclick=()=>{s.archived?unarchiveSubject(s.id):archiveSubject(s.id);if(!s.archived)renderSubjectPanel()};
   $$('#spTabs [data-spt]').forEach(b=>b.onclick=()=>{spTab=b.dataset.spt;renderSubjectPanel()});
   const body=$('#spBody');
   if(spTab==='grades')body.innerHTML=spGradesHTML(s,totalW,avance);
@@ -3767,6 +3930,7 @@ function renderSubjectPanel(){
   spWireTab(s);
 }
 function spInfoHTML(classes,nc,avance){
+  const s=findSubject(spId);
   const scheduleRows=classes.length?classes.map(c=>{
     const isNext=nc&&nc.c===c;
     return `<div class="item" style="border:0;padding:6px 8px;${isNext?'background:var(--mint);border-radius:10px':''}">
@@ -3774,6 +3938,7 @@ function spInfoHTML(classes,nc,avance){
       ${isNext?'<span class="pill" style="background:var(--card);color:var(--green-dark)">Próxima</span>':''}
     </div>`;
   }).join(''):'<p class="sub">Sin clases programadas en el horario.</p>';
+  const hasContact=s.email||s.officeHours||s.classroomUrl;
   return `<div class="stack">
     <div>
       <div class="sub" style="font-weight:700;color:var(--ink);margin-bottom:6px">Avance académico evaluado</div>
@@ -3784,34 +3949,104 @@ function spInfoHTML(classes,nc,avance){
       <div class="card-head" style="margin:12px 0 4px"><h3>Horario y aula</h3></div>
       <div class="stack">${scheduleRows}</div>
     </div>
+    <div>
+      <div class="card-head" style="margin:12px 0 4px"><h3>Contacto y aula virtual</h3></div>
+      ${hasContact?`<div class="stack">
+        ${s.email?`<div class="item" style="border:0;padding:4px 0"><div class="grow">✉️ <a href="mailto:${esc(s.email)}" style="color:var(--ink)">${esc(s.email)}</a></div></div>`:''}
+        ${s.officeHours?`<div class="item" style="border:0;padding:4px 0"><div class="grow">🕘 ${esc(s.officeHours)}</div></div>`:''}
+        ${s.classroomUrl?`<div class="item" style="border:0;padding:4px 0"><div class="grow">🔗 <a href="${esc(s.classroomUrl)}" target="_blank" rel="noopener" style="color:var(--ink)">${esc(s.classroomUrl)}</a></div></div>`:''}
+      </div>`:'<p class="sub">Sin correo, horario de atención ni aula virtual guardados. Toca "✎ Editar" para añadirlos.</p>'}
+    </div>
+    <div>
+      <div class="card-head" style="margin:12px 0 4px"><h3>Sílabo / criterios de evaluación</h3></div>
+      ${s.syllabus?`<p class="sub" style="white-space:pre-wrap;color:var(--ink)">${esc(s.syllabus)}</p>`:'<p class="sub">Sin sílabo guardado todavía. Toca "✎ Editar" para pegarlo.</p>'}
+    </div>
   </div>`;
 }
-function spGradesHTML(s,totalW,avance){
-  const upcoming=s.grades.filter(g=>g.date&&g.date>=iso(new Date())).sort((a,b)=>a.date.localeCompare(b.date));
-  const rows=s.grades.length?[...s.grades].sort((a,b)=>(a.date||'9999-99-99').localeCompare(b.date||'9999-99-99')).map(g=>`
-    <div class="item">
+/* Agrupa notas por corte (si la materia los usa) mostrando subtotal de peso y promedio por corte. */
+function gradesGroupedHTML(s,rowFn){
+  if(!s.grades.length)return'<p class="sub">Sin notas registradas todavía.</p>';
+  if(!s.cortes.length){
+    const sorted=[...s.grades].sort((a,b)=>(a.date||'9999-99-99').localeCompare(b.date||'9999-99-99'));
+    return `<div class="stack">${sorted.map(rowFn).join('')}</div>`;
+  }
+  const groups=[...s.cortes,''];
+  return groups.map(corte=>{
+    const items=s.grades.filter(g=>(g.corte||'')===corte);
+    if(!items.length)return'';
+    const w=items.reduce((a,g)=>a+(+g.weight||0),0);
+    const avgC=w>0?items.reduce((a,g)=>a+(+g.score||0)*(+g.weight||0),0)/w:null;
+    const sorted=[...items].sort((a,b)=>(a.date||'9999-99-99').localeCompare(b.date||'9999-99-99'));
+    return `<div style="margin-bottom:10px">
+      <div class="sub" style="font-weight:700;color:var(--ink);display:flex;justify-content:space-between;gap:8px">
+        <span>${corte?esc(corte):'Sin corte'}</span><span>${w}% del total · ${avgC===null?'—':avgC.toFixed(2)}</span>
+      </div>
+      <div class="stack">${sorted.map(rowFn).join('')}</div>
+    </div>`;
+  }).join('');
+}
+function neededBlockHTML(s){
+  const n=subjectNeeded(s);
+  let msg;
+  if(n.status==='sin-notas')msg='Registra al menos una nota para calcular qué necesitas para pasar.';
+  else if(n.status==='aprobado')msg=`Curso evaluado por completo: promedio final <b>${n.avg.toFixed(2)}</b> — ¡aprobado! (mínimo ${n.min})`;
+  else if(n.status==='reprobado')msg=`Curso evaluado por completo: promedio final <b>${n.avg.toFixed(2)}</b> — no alcanzó el mínimo de ${n.min}.`;
+  else if(n.status==='asegurado')msg=`Ya aseguraste pasar con nota mínima ${n.min}, sin importar lo que saques en el ${n.remaining}% restante.`;
+  else if(n.status==='imposible')msg=`Ya no es matemáticamente posible llegar a ${n.min}: necesitarías ${n.required.toFixed(2)} en el ${n.remaining}% que falta (el máximo es 5.0).`;
+  else msg=`Necesitas al menos <b>${n.required.toFixed(2)}</b> en el ${n.remaining}% que falta para pasar con ${n.min}.`;
+  return `<div class="item" style="border:0;background:var(--soft);border-radius:12px;padding:10px 12px">
+    <div class="grow"><b>🎯 ¿Qué necesito para pasar?</b><div class="sub" style="margin-top:2px">${msg}</div></div>
+  </div>`;
+}
+/* Sección de asistencia: registro de faltas con fecha y motivo (justificada/injustificada). */
+function faltaSectionHTML(s,prefix){
+  const lvl=faltaWarnLevel(s);
+  const log=[...s.faltaLog].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  const rows=log.length?log.map(f=>`
+    <div class="item" style="border:0;padding:4px 0">
+      <div class="grow">${f.date?fmtDate(f.date):'<span class="sub">Sin fecha</span>'}${f.reason?' · '+(f.reason==='justificada'?'Justificada':'Injustificada'):''}</div>
+      <button type="button" class="link danger" data-${prefix}faltadel="${f.id}">Eliminar</button>
+    </div>`).join(''):'<p class="sub">Sin faltas registradas.</p>';
+  return `<div>
+    <div class="card-head" style="margin:10px 0 4px"><h3>Asistencia</h3><span class="sub">${s.faltas} falta${s.faltas===1?'':'s'}${s.maxFaltas?` de ${s.maxFaltas} permitidas`:''}</span></div>
+    ${lvl==='danger'?'<p class="sub" style="color:var(--danger);font-weight:700">⚠ Alcanzaste o superaste el límite de faltas permitidas.</p>':''}
+    ${lvl==='warn'?'<p class="sub" style="color:#a87a1f;font-weight:700">⚠ Estás a una falta de superar el límite.</p>':''}
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0">
+      <input type="date" id="${prefix}FaltaDate" value="${iso(new Date())}" style="flex:1 1 140px"/>
+      <select id="${prefix}FaltaReason" style="flex:1 1 130px">
+        <option value="injustificada">Injustificada</option>
+        <option value="justificada">Justificada</option>
+      </select>
+      <button type="button" class="ghost" id="${prefix}FaltaAdd">＋ Registrar falta</button>
+    </div>
+    <div class="stack">${rows}</div>
+  </div>`;
+}
+function faltaWireSection(s,prefix,after){
+  $(`#${prefix}FaltaAdd`).onclick=()=>{addFalta(s,$(`#${prefix}FaltaDate`).value,$(`#${prefix}FaltaReason`).value);after()};
+  $$(`[data-${prefix}faltadel]`).forEach(b=>b.onclick=()=>{deleteFalta(s,b.dataset[`${prefix}faltadel`]);after()});
+}
+function spGradeRow(g){
+  return `<div class="item">
       <div class="grow">
         <b>${esc(g.name)}</b>
         <div class="sub">${g.weight?g.weight+'% del total · ':''}Nota: ${(+g.score).toFixed(1)}${g.date?' · 📅 '+fmtDate(g.date):''}</div>
       </div>
       <button type="button" class="link" data-spgedit="${g.id}">Editar</button>
       <button type="button" class="link danger" data-spgdel="${g.id}">Eliminar</button>
-    </div>`).join(''):'<p class="sub">Sin notas registradas todavía.</p>';
+    </div>`;
+}
+function spGradesHTML(s,totalW,avance){
+  const upcoming=s.grades.filter(g=>g.date&&g.date>=iso(new Date())).sort((a,b)=>a.date.localeCompare(b.date));
   return `<div class="stack">
     <div class="item" style="border:0">
       <div class="grow"><b>Peso evaluado</b><div class="sub">${totalW}% del total registrado${avance<100?` · restan ${100-avance}% por evaluar`:' · curso evaluado por completo'}</div></div>
     </div>
-    <div class="item" style="border:0">
-      <div class="grow"><b>Asistencia</b><div class="sub">${s.faltas} falta${s.faltas===1?'':'s'}${s.maxFaltas?` de ${s.maxFaltas} permitidas`:''}</div></div>
-      <div style="display:flex;gap:6px">
-        <button type="button" class="ghost" id="spFaltaMinus" style="padding:6px 12px">−</button>
-        <button type="button" class="ghost" id="spFaltaPlus" style="padding:6px 12px">+</button>
-      </div>
-    </div>
-    ${s.maxFaltas&&s.faltas>=s.maxFaltas?'<p class="sub" style="color:var(--danger);font-weight:700">⚠ Alcanzaste o superaste el límite de faltas permitidas.</p>':''}
+    ${neededBlockHTML(s)}
+    ${faltaSectionHTML(s,'sp')}
     ${upcoming.length?`<div><div class="sub" style="font-weight:700;color:var(--ink);margin-bottom:6px">📅 Próximas fechas de evaluación</div><div class="stack">${upcoming.map(g=>`<div class="item" style="border:0;padding:4px 0"><div class="grow">${esc(g.name)}</div><span class="sub">${fmtDate(g.date)}</span></div>`).join('')}</div></div>`:''}
     <div class="card-head" style="margin:10px 0 0"><h3>Notas</h3><button type="button" class="link" id="spAddGrade">＋ Añadir nota</button></div>
-    <div class="stack">${rows}</div>
+    ${gradesGroupedHTML(s,spGradeRow)}
   </div>`;
 }
 function spTasksHTML(pending,done){
@@ -3861,12 +4096,15 @@ function spMaterialCard(m){
     </div>`;
   }
   const icon=m.kind==='image'?'🖼️':m.kind==='video'?'🎬':m.kind==='pdf'?'📄':'📎';
-  const thumb=m.kind==='image'?`<img loading="lazy" decoding="async" class="sp-mat-thumb" data-spmth="${m.id}" alt="" data-spmopen="${m.id}" style="cursor:pointer"/>`:'';
-  return `<div class="sp-mat-card">
-    <div class="sp-mat-head"><b style="cursor:pointer" data-spmopen="${m.id}">${icon} ${esc(m.title||'Archivo')}</b><div style="display:flex;gap:4px;flex:none"><button type="button" class="link" data-spmedit="${m.id}">Comentar</button><button type="button" class="link danger" data-spmdel="${m.id}">Eliminar</button></div></div>
-    ${thumb}
-    ${m.comment?`<div class="sp-mat-note">${esc(m.comment)}</div>`:''}
-    ${meta}
+  const isPic=m.kind==='image'||m.kind==='video';
+  const ext=(String(m.title||'').match(/\.(\w+)$/)||[])[1]||'';
+  return `<div class="lib-card" data-spmopen="${m.id}">
+    <button type="button" class="lib-card-edit" data-spmedit="${m.id}" title="Comentar">✎</button>
+    <button type="button" class="lib-card-x" data-spmdel="${m.id}" title="Eliminar">✕</button>
+    <div class="lib-cover${isPic?' pw-img':''}" data-spmth="${m.id}">${icon}</div>
+    <b>${esc(m.title||'Archivo')}</b>
+    <small>${ext?esc(ext.toUpperCase())+' · ':''}${m.added?timeAgo(m.added):''}</small>
+    ${m.comment?`<div class="sp-mat-note" style="padding:0 10px 8px;margin-top:0">${esc(m.comment)}</div>`:''}
   </div>`;
 }
 function spMaterialsHTML(s){
@@ -3929,8 +4167,7 @@ function spWireTab(s){
       undoSnapshot=snapshot();s.grades=s.grades.filter(g=>g.id!==b.dataset.spgdel);
       renderAll();toast('Nota eliminada',true);renderSubjectPanel();
     });
-    $('#spFaltaMinus').onclick=()=>{if(s.faltas>0){undoSnapshot=snapshot();s.faltas--;save();renderSchedSubjects();renderGrades();renderSubjectPanel()}};
-    $('#spFaltaPlus').onclick=()=>{undoSnapshot=snapshot();s.faltas++;save();renderSchedSubjects();renderGrades();renderSubjectPanel()};
+    faltaWireSection(s,'sp',()=>{renderSchedSubjects();renderGrades();renderSubjectPanel()});
   }else if(spTab==='tasks'){
     $('#spTaskAdd').onclick=()=>{
       const v=$('#spTaskNew').value.trim();if(!v)return;
@@ -3980,37 +4217,37 @@ function spWireTab(s){
       };
     }
     if($('#spMatFilterBar'))$$('#spMatFilterBar [data-spmf]').forEach(b=>b.onclick=()=>{spMatFilter=b.dataset.spmf;renderSubjectPanel()});
-    $$('#spBody [data-spmth]').forEach(img=>{
-      const m=s.materials.find(x=>x.id===img.dataset.spmth);if(!m)return;
-      pwGetURL(m).then(u=>{if(u&&img.isConnected)img.src=u});
-    });
-    $$('#spBody [data-spmdel]').forEach(b=>b.onclick=()=>{
+    spThumbsObserve();
+    $$('#spBody [data-spmdel]').forEach(b=>b.onclick=e=>{
+      e.stopPropagation();
       const id=b.dataset.spmdel;
       undoSnapshot=snapshot();s.materials=s.materials.filter(x=>x.id!==id);
       pwDeleteFileData(id);
       save();toast('Eliminado',true);renderSubjectPanel();
     });
-    $$('#spBody [data-spmedit]').forEach(b=>b.onclick=()=>spEditMaterial(s,b.dataset.spmedit));
-    $$('#spBody [data-spmopen]').forEach(b=>b.onclick=()=>{const m=s.materials.find(x=>x.id===b.dataset.spmopen);if(m)openFilePreview(m)});
+    $$('#spBody [data-spmedit]').forEach(b=>b.onclick=e=>{e.stopPropagation();spEditMaterial(s,b.dataset.spmedit)});
+    $$('#spBody [data-spmopen]').forEach(card=>card.onclick=e=>{
+      if(e.target.closest('[data-spmdel],[data-spmedit]'))return;
+      const m=s.materials.find(x=>x.id===card.dataset.spmopen);if(m)spOpenFile(m);
+    });
   }
 }
 
 /* --- Calificaciones y asistencia --- */
 function gradesModal(subjectId){
   const s=findSubject(subjectId);if(!s)return;
-  function body(){
-    const totalW=s.grades.reduce((a,g)=>a+(+g.weight||0),0);
-    const avg=subjectAvg(s);
-    const passed=avg!==null&&avg>=3;
-    const rowsHTML=s.grades.length?s.grades.map(g=>`
-      <div class="item">
+  const gRow=g=>`<div class="item">
         <div class="grow">
           <b>${esc(g.name)}</b>
           <div class="sub">${g.weight?g.weight+'% del total · ':''}Nota: ${(+g.score).toFixed(1)}</div>
         </div>
         <button type="button" class="link" onclick="editGrade('${s.id}','${g.id}')">Editar</button>
         <button type="button" class="link danger" onclick="deleteGrade('${s.id}','${g.id}')">Eliminar</button>
-      </div>`).join(''):`<p class="sub">Sin notas registradas todavía.</p>`;
+      </div>`;
+  function body(){
+    const totalW=s.grades.reduce((a,g)=>a+(+g.weight||0),0);
+    const avg=subjectAvg(s);
+    const passed=avg!==null&&avg>=(s.notaMinima||3);
     return `<div class="stack">
       <div class="item" style="border:0">
         <div class="grow">
@@ -4019,19 +4256,10 @@ function gradesModal(subjectId){
         </div>
         <span class="pill" style="background:${avg===null?'var(--soft)':passed?'var(--mint)':'rgba(176,101,95,.15)'};color:${avg===null?'var(--muted)':passed?'var(--green-dark)':'var(--danger)'}">${avg===null?'—':avg.toFixed(2)}</span>
       </div>
-      <div class="item" style="border:0">
-        <div class="grow">
-          <b>Asistencia</b>
-          <div class="sub">${s.faltas} falta${s.faltas===1?'':'s'}${s.maxFaltas?` de ${s.maxFaltas} permitidas`:''}</div>
-        </div>
-        <div style="display:flex;gap:6px">
-          <button type="button" class="ghost" id="gFaltaMinus" style="padding:6px 12px">−</button>
-          <button type="button" class="ghost" id="gFaltaPlus" style="padding:6px 12px">+</button>
-        </div>
-      </div>
-      ${s.maxFaltas&&s.faltas>=s.maxFaltas?'<p class="sub" style="color:var(--danger);font-weight:700">⚠ Alcanzaste o superaste el límite de faltas permitidas.</p>':''}
+      ${neededBlockHTML(s)}
+      ${faltaSectionHTML(s,'g')}
       <div class="card-head" style="margin:4px 0 0"><h3>Notas</h3><button type="button" class="link" id="gAddGrade">＋ Añadir nota</button></div>
-      <div class="stack">${rowsHTML}</div>
+      ${gradesGroupedHTML(s,gRow)}
       <div class="modal-foot"><button type="button" class="ghost" id="gClose">Cerrar</button></div>
     </div>`;
   }
@@ -4039,8 +4267,7 @@ function gradesModal(subjectId){
     openModal(`Calificaciones · ${esc(s.name)}`,null,body());
     $('#gClose').onclick=closeModal;
     $('#gAddGrade').onclick=()=>gradeForm(s.id,null,paint);
-    $('#gFaltaMinus').onclick=()=>{if(s.faltas>0){undoSnapshot=snapshot();s.faltas--;save();renderSchedSubjects();paint()}};
-    $('#gFaltaPlus').onclick=()=>{undoSnapshot=snapshot();s.faltas++;save();renderSchedSubjects();paint()};
+    faltaWireSection(s,'g',()=>{renderSchedSubjects();paint()});
   }
   paint();
 }
@@ -4054,7 +4281,10 @@ function gradeForm(subjectId,gradeId,onDone){
       <label>Nota (0.0–5.0)<input type="number" name="score" min="0" max="5" step="0.1" value="${g?.score??''}" required/></label>
       <label>Peso % (opcional)<input type="number" name="weight" min="0" max="100" step="1" value="${g?.weight||''}" placeholder="Ej. 30"/></label>
     </div>
-    <label>Fecha de evaluación (opcional)<input type="date" name="date" value="${g?.date||''}"/></label>
+    <div class="row2">
+      <label>Fecha de evaluación (opcional)<input type="date" name="date" value="${g?.date||''}"/></label>
+      ${s.cortes.length?`<label>Corte/periodo<select name="corte"><option value="">Sin corte</option>${s.cortes.map(c=>`<option value="${esc(c)}" ${g?.corte===c?'selected':''}>${esc(c)}</option>`).join('')}</select></label>`:''}
+    </div>
     <div class="modal-foot">
       <button type="button" class="ghost" id="gfCancel">Cancelar</button>
       <button class="primary" type="submit">Guardar</button>
@@ -4067,7 +4297,7 @@ function gradeForm(subjectId,gradeId,onDone){
     const fd=Object.fromEntries(new FormData(e.target).entries());
     const score=Math.max(0,Math.min(5,+fd.score));
     undoSnapshot=snapshot();
-    const it={name:fd.name,score,weight:fd.weight?Math.max(0,Math.min(100,+fd.weight)):0,date:fd.date||''};
+    const it={name:fd.name,score,weight:fd.weight?Math.max(0,Math.min(100,+fd.weight)):0,date:fd.date||'',corte:fd.corte||''};
     if(g){Object.assign(g,it);toast('Nota actualizada',true)}
     else{s.grades.push({id:uid(),...it});toast('Nota añadida',true)}
     renderAll();
@@ -4084,23 +4314,50 @@ window.deleteGrade=(subjectId,gradeId)=>{
 };
 function renderGrades(){
   const host=$('#schedGrades');if(!host)return;
-  const subjects=[...state.subjects].sort((a,b)=>a.name.localeCompare(b.name));
-  if(!subjects.length){host.innerHTML=empty('Sin materias todavía','Crea una materia para registrar sus notas y asistencia.');if($('#gpaPill'))$('#gpaPill').textContent='—';return}
+  const subjects=visibleSubjects().sort((a,b)=>a.name.localeCompare(b.name));
+  const riskHost=$('#gradesRisk');
+  if(!subjects.length){
+    host.innerHTML=empty(subjShowArchived?'Sin materias archivadas':'Sin materias todavía',subjShowArchived?'':'Crea una materia para registrar sus notas y asistencia.');
+    if($('#gpaPill'))$('#gpaPill').textContent='—';
+    if(riskHost)riskHost.innerHTML='';
+    return;
+  }
   let credW=0,credSum=0;
   host.innerHTML=subjects.map(s=>{
     const avg=subjectAvg(s);
-    const passed=avg!==null&&avg>=3;
+    const min=s.notaMinima||3;
+    const passed=avg!==null&&avg>=min;
     if(avg!==null){credW+=avg*s.credits;credSum+=s.credits}
-    const faltaWarn=s.maxFaltas&&s.faltas>=s.maxFaltas;
+    const lvl=faltaWarnLevel(s);
     return`<div class="item" style="cursor:pointer" onclick="openSubjectPanel('${s.id}','grades')">
       <div class="grow">
         <b>${esc(s.name)}</b>
-        <div class="sub">${s.credits} crédito${s.credits===1?'':'s'} · ${s.faltas} falta${s.faltas===1?'':'s'}${s.maxFaltas?'/'+s.maxFaltas:''}${faltaWarn?' ⚠':''}</div>
+        <div class="sub">${s.credits} crédito${s.credits===1?'':'s'} · ${s.faltas} falta${s.faltas===1?'':'s'}${s.maxFaltas?'/'+s.maxFaltas:''}${lvl==='danger'?' ⚠':lvl==='warn'?' ⚠(cerca)':''}</div>
       </div>
       <span class="pill" style="background:${avg===null?'var(--soft)':passed?'var(--mint)':'rgba(176,101,95,.15)'};color:${avg===null?'var(--muted)':passed?'var(--green-dark)':'var(--danger)'}">${avg===null?'Sin notas':avg.toFixed(2)}</span>
     </div>`;
   }).join('');
   if($('#gpaPill'))$('#gpaPill').textContent=credSum?( credW/credSum).toFixed(2):'—';
+  if(riskHost){
+    const risk=subjects.filter(s=>{
+      const avg=subjectAvg(s);
+      const totalW=s.grades.reduce((a,g)=>a+(+g.weight||0),0);
+      const reprobando=avg!==null&&totalW>=50&&avg<(s.notaMinima||3);
+      const faltasRisk=s.maxFaltas&&s.faltas>=s.maxFaltas*.75;
+      return reprobando||faltasRisk;
+    });
+    riskHost.innerHTML=risk.length?`<div class="item" style="border:0;background:rgba(176,101,95,.1);border-radius:12px;padding:8px 12px;flex-direction:column;align-items:stretch;gap:4px">
+      <b style="color:var(--danger)">⚠ Materias en riesgo</b>
+      ${risk.map(s=>{
+        const avg=subjectAvg(s);
+        const bits=[];
+        const totalW=s.grades.reduce((a,g)=>a+(+g.weight||0),0);
+        if(avg!==null&&totalW>=50&&avg<(s.notaMinima||3))bits.push(`promedio ${avg.toFixed(2)} (mínimo ${s.notaMinima||3})`);
+        if(s.maxFaltas&&s.faltas>=s.maxFaltas*.75)bits.push(`${s.faltas}/${s.maxFaltas} faltas`);
+        return `<div class="sub" style="cursor:pointer" onclick="openSubjectPanel('${s.id}','grades')">${esc(s.name)}: ${bits.join(' · ')}</div>`;
+      }).join('')}
+    </div>`:'';
+  }
 }
 
 /* ---------- Widgets del inicio: Horario y Calificaciones ---------- */
@@ -4125,7 +4382,7 @@ function renderScheduleWidget(){
 }
 function renderGradesWidget(){
   const host=$('#gradesWidgetList');if(!host)return;
-  const subjects=[...state.subjects].sort((a,b)=>a.name.localeCompare(b.name));
+  const subjects=state.subjects.filter(s=>!s.archived).sort((a,b)=>a.name.localeCompare(b.name));
   if(!subjects.length){
     host.innerHTML=empty('Sin materias todavía','Crea una materia en Horario para ver tus notas aquí.');
     if($('#gradesWidgetPill'))$('#gradesWidgetPill').textContent='—';
@@ -4134,7 +4391,7 @@ function renderGradesWidget(){
   let credW=0,credSum=0;
   host.innerHTML=subjects.map(s=>{
     const avg=subjectAvg(s);
-    const passed=avg!==null&&avg>=3;
+    const passed=avg!==null&&avg>=(s.notaMinima||3);
     if(avg!==null){credW+=avg*s.credits;credSum+=s.credits}
     return`<div class="item" style="border:0;padding:7px 0;cursor:pointer" onclick="openSubjectPanel('${s.id}','grades')">
       <div class="grow"><b>${esc(s.name)}</b><div class="sub">${s.credits} crédito${s.credits===1?'':'s'}</div></div>
@@ -4149,7 +4406,7 @@ function classForm(c){
   const isEdit=!!c;
   const dayOptions=SCHED_DAYS.map((d,i)=>`<option value="${i+1}" ${c&&c.day===i+1?'selected':''}>${d}</option>`).join('');
   function subjectOptions(){
-    const subs=[...state.subjects].sort((a,b)=>a.name.localeCompare(b.name));
+    const subs=state.subjects.filter(s=>!s.archived).sort((a,b)=>a.name.localeCompare(b.name));
     return subs.map(s=>`<option value="${s.id}" ${c&&c.subjectId===s.id?'selected':''}>${esc(s.name)}</option>`).join('');
   }
   const body=`<form class="form" id="mForm">
@@ -4509,6 +4766,7 @@ $('#tHelp').onclick=()=>openModal('Atajos de teclado','Funcionan cuando no está
     <div class="item"><span class="grow">Mes anterior / siguiente</span><kbd>←</kbd> <kbd>→</kbd></div>
     <div class="item"><span class="grow">Volver a hoy</span><kbd>H</kbd></div>
     <div class="item"><span class="grow">Cambiar tema</span><kbd>D</kbd></div>
+    <div class="item"><span class="grow">Abrir/cerrar Orus</span><kbd>O</kbd></div>
     <div class="item"><span class="grow">Cerrar ventana</span><kbd>Esc</kbd></div>
   </div><div class="modal-foot"><button class="primary" onclick="closeModal()">Entendido</button></div>`);
 window.closeModal=closeModal;
@@ -4524,6 +4782,7 @@ document.addEventListener('keydown',e=>{
   else if(k==='d'){setDark(!document.body.classList.contains('dark'))}
   else if(k==='/'){e.preventDefault();showPage('calendar');setTimeout(()=>$('#search').focus(),150)}
   else if(k==='h'){cursor=new Date();cursor.setDate(1);dayCursor=iso(new Date());weekCursor=startOfWeek(new Date());renderCalendar();renderCalGrid()}
+  else if(k==='o'){e.preventDefault();if(window.orusToggle)window.orusToggle()}
   else if(e.key==='ArrowLeft'&&current==='dashboard'){cursor.setMonth(cursor.getMonth()-1);renderCalendar();renderCalGrid()}
   else if(e.key==='ArrowRight'&&current==='dashboard'){cursor.setMonth(cursor.getMonth()+1);renderCalendar();renderCalGrid()}
 });
@@ -4761,14 +5020,15 @@ function renderNewWidgets(){
       ${free.filter(([a,b])=>b-a>=30).slice(0,4).map(([a,b])=>`<div class="item" style="border:0;padding:4px 0"><span class="grow">${minToTime(a)}–${minToTime(b)}</span><span class="pill">${fmtMin(b-a)}</span></div>`).join('')}`;
   }
   if($('#acadBox')){
-    let cw=0,cs=0;state.subjects.forEach(s=>{const v=subjectAvg(s);if(v!==null){cw+=v*s.credits;cs+=s.credits}});
+    const activeSubs=state.subjects.filter(s=>!s.archived);
+    let cw=0,cs=0;activeSubs.forEach(s=>{const v=subjectAvg(s);if(v!==null){cw+=v*s.credits;cs+=s.credits}});
     $('#acadPill').textContent=cs?'Prom. '+(cw/cs).toFixed(2):'—';
     const ev=state.events.filter(e=>e.subjectId&&!e.done&&e.date>=today).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time)).slice(0,4);
-    const risk=state.subjects.filter(s=>s.maxFaltas&&s.faltas>=s.maxFaltas*.75);
-    $('#acadBox').innerHTML=state.subjects.length?`<div class="cstat"><b>${state.subjects.length} materia${state.subjects.length===1?'':'s'}</b><span class="sub">${state.subjects.reduce((a,s)=>a+s.credits,0)} créditos</span></div>
+    const risk=activeSubs.filter(s=>s.maxFaltas&&s.faltas>=s.maxFaltas*.75);
+    $('#acadBox').innerHTML=activeSubs.length?`<div class="cstat"><b>${activeSubs.length} materia${activeSubs.length===1?'':'s'}</b><span class="sub">${activeSubs.reduce((a,s)=>a+s.credits,0)} créditos</span></div>
       <p class="sub" style="margin:8px 0 2px"><b>Próximas evaluaciones y tareas</b></p>
       ${ev.length?ev.map(e=>`<div class="item" style="border:0;padding:5px 0;cursor:pointer" onclick="editEvent('${e.id}')"><div class="grow"><b>${esc(e.title)}</b><div class="sub">${esc(findSubject(e.subjectId)?.name||'')} · ${fmtDate(e.date)}</div></div></div>`).join(''):'<p class="sub" style="margin:0">Nada pendiente ligado a tus materias.</p>'}
-      ${risk.map(s=>`<p class="sub" style="margin:8px 0 0;color:var(--danger)">⚠ ${esc(s.name)}: ${s.faltas}/${s.maxFaltas} faltas</p>`).join('')}`
+      ${risk.map(s=>`<p class="sub" style="margin:8px 0 0;color:${s.faltas>=s.maxFaltas?'var(--danger)':'#a87a1f'}">⚠ ${esc(s.name)}: ${s.faltas}/${s.maxFaltas} faltas</p>`).join('')}`
       :empty('Sin materias todavía','Crea una materia en Horario para ver tu resumen.');
   }
   if($('#dayGoalBox')){
@@ -5497,6 +5757,7 @@ function renderAll(lazy){
     bc('rest:schedTasks');renderSchedTasks();
     bc('rest:grades');renderGrades();
     if(workspaceProjectId){bc('rest:workspace');renderProjectWorkspace()}
+    if(spId){bc('rest:subjectWorkspace');renderSubjectPanel()}
     bc('rest:done');
   };
   if(lazy===true){_rest=rest;(window.requestIdleCallback||(f=>setTimeout(f,50)))(flushRest,{timeout:800})}else{_rest=null;rest()}
@@ -6318,53 +6579,417 @@ async function libPlay(lib,it,list){
 }
 
 /* ================= Orus: asistente IA flotante ================= */
-/* Cada persona pone su propia API key de Gemini (gratis, en https://aistudio.google.com/apikey).
-   Se guarda solo en su navegador (localStorage) y el navegador le habla directo a Gemini:
-   ya no depende de ninguna función/servidor propio. */
-const ORUS_MODEL='gemini-flash-latest';
+/* Cada persona pone su propia API key (gratis) del proveedor de IA que prefiera:
+   Gemini, Claude o ChatGPT. Se guarda solo en su navegador (localStorage) y el
+   navegador le habla directo a la API de ese proveedor: no depende de ninguna
+   función/servidor propio de ORUS. */
+
+/* Catálogo cerrado de herramientas que Orus puede invocar, en formato neutral
+   (JSON Schema en mayúsculas al estilo Gemini). Cada adaptador de proveedor lo
+   traduce a su propio formato de "function calling"/"tools". */
+const ORUS_FN_DEFS=[
+  {name:'crear_evento',description:'Crea un evento/recordatorio en el calendario de ORUS.',parameters:{type:'OBJECT',properties:{
+    titulo:{type:'STRING'},fecha:{type:'STRING',description:'formato YYYY-MM-DD'},hora:{type:'STRING',description:'formato HH:MM, opcional'},
+    descripcion:{type:'STRING'}},required:['titulo','fecha']}},
+  {name:'editar_evento',description:'Edita un evento ya existente del calendario, encontrado por su título actual (y opcionalmente su fecha actual, para desambiguar). Solo cambia los campos indicados.',parameters:{type:'OBJECT',properties:{
+    titulo_actual:{type:'STRING',description:'Título del evento a editar, tal como está guardado'},
+    fecha_actual:{type:'STRING',description:'Fecha actual del evento en formato YYYY-MM-DD, opcional'},
+    nuevo_titulo:{type:'STRING'},nueva_fecha:{type:'STRING',description:'formato YYYY-MM-DD'},
+    nueva_hora:{type:'STRING',description:'formato HH:MM'},nueva_descripcion:{type:'STRING'}},required:['titulo_actual']}},
+  {name:'eliminar_evento',description:'Elimina un evento del calendario de ORUS, encontrado por su título (y opcionalmente su fecha, para desambiguar).',parameters:{type:'OBJECT',properties:{
+    titulo:{type:'STRING'},fecha:{type:'STRING',description:'formato YYYY-MM-DD, opcional'}},required:['titulo']}},
+  {name:'crear_nota',description:'Crea una nota nueva en ORUS.',parameters:{type:'OBJECT',properties:{
+    titulo:{type:'STRING'},contenido:{type:'STRING'}},required:['titulo']}},
+  {name:'crear_objetivo',description:'Crea un objetivo/meta.',parameters:{type:'OBJECT',properties:{
+    texto:{type:'STRING'},periodo:{type:'STRING',description:"'day', 'week' o 'month'"}},required:['texto']}},
+  {name:'crear_proyecto',description:'Crea un proyecto nuevo en ORUS.',parameters:{type:'OBJECT',properties:{
+    nombre:{type:'STRING'},descripcion:{type:'STRING'}},required:['nombre']}},
+  {name:'crear_tarea_proyecto',description:'Agrega una tarea al tablero de un proyecto existente, por nombre.',parameters:{type:'OBJECT',properties:{
+    proyecto:{type:'STRING'},texto:{type:'STRING'}},required:['proyecto','texto']}},
+  {name:'marcar_tarea_hecha',description:'Marca como completada (o pendiente de nuevo) una tarea dentro de un proyecto existente, encontrada por su texto.',parameters:{type:'OBJECT',properties:{
+    proyecto:{type:'STRING'},texto:{type:'STRING',description:'Texto, o parte del texto, de la tarea'},
+    hecha:{type:'BOOLEAN',description:'true para marcarla como hecha, false para dejarla pendiente. Por defecto true.'}},required:['proyecto','texto']}},
+  {name:'consultar_proyecto',description:'Consulta el detalle exacto de un proyecto existente: su descripción y sus tareas agrupadas por estado (por hacer, en proceso, en revisión, terminadas), con el total de cada una. Úsala siempre que te pregunten cuántas tareas tiene un proyecto, en qué estado están, o pidan el detalle puntual de uno — el resumen de contexto no trae ese desglose.',parameters:{type:'OBJECT',properties:{
+    nombre:{type:'STRING'}},required:['nombre']}},
+  {name:'leer_notas_proyecto',description:'Lee el contenido de texto de las notas de un proyecto existente (el bloc de notas del espacio de trabajo del proyecto: texto y tablas). Úsala siempre que te pidan el contenido, el texto o un resumen de las notas de un proyecto.',parameters:{type:'OBJECT',properties:{
+    nombre:{type:'STRING'}},required:['nombre']}},
+  {name:'crear_habito',description:'Crea un hábito nuevo para hacer seguimiento en ORUS.',parameters:{type:'OBJECT',properties:{
+    nombre:{type:'STRING'},categoria:{type:'STRING',description:'Ej. Mente, Cuerpo, Estudio, opcional'},
+    frecuencia:{type:'STRING',description:"'daily', 'weekly', 'monthly' o 'yearly', opcional (por defecto 'daily')"}},required:['nombre']}},
+  {name:'agregar_materia',description:'Agrega una materia al horario de ORUS. Si además se indican día y horas, también crea la clase correspondiente en el horario semanal.',parameters:{type:'OBJECT',properties:{
+    nombre:{type:'STRING'},profesor:{type:'STRING'},creditos:{type:'NUMBER'},
+    dia:{type:'STRING',description:"día de la clase: 'lunes','martes','miercoles','jueves','viernes' o 'sabado', opcional"},
+    hora_inicio:{type:'STRING',description:'formato HH:MM, opcional'},hora_fin:{type:'STRING',description:'formato HH:MM, opcional'},
+    aula:{type:'STRING',description:'opcional'}},required:['nombre']}},
+  {name:'cambiar_tema',description:'Cambia el tema visual de la app.',parameters:{type:'OBJECT',properties:{
+    modo:{type:'STRING',description:"'claro' u 'oscuro'"}},required:['modo']}},
+  {name:'ir_a_pagina',description:'Navega a una sección de la app.',parameters:{type:'OBJECT',properties:{
+    pagina:{type:'STRING',description:'una de: dashboard, calendar, projects, notes, schedule, vision, habits, settings'}},required:['pagina']}}
+];
+
+/* Convierte el JSON Schema "estilo Gemini" (tipos en mayúsculas) al JSON Schema
+   estándar (tipos en minúsculas) que usan Claude y OpenAI. */
+function orusToJsonSchema(node){
+  if(!node||typeof node!=='object')return node;
+  const out={};
+  for(const k in node){
+    if(k==='type')out.type=String(node[k]).toLowerCase();
+    else if(k==='properties'){
+      out.properties={};
+      for(const p in node.properties)out.properties[p]=orusToJsonSchema(node.properties[p]);
+    }
+    else out[k]=node[k];
+  }
+  return out;
+}
+function orusParseJSON(s){try{return JSON.parse(s||'{}')}catch(e){return{}}}
+async function orusHttpError(providerLabel,res){
+  let msg=`Orus no pudo responder. Revisa que tu API key de ${providerLabel} sea correcta.`;
+  try{
+    const j=await res.json();
+    const apiMsg=(j&&j.error&&(j.error.message||j.error))||(j&&j.message);
+    if(apiMsg&&typeof apiMsg==='string')msg=apiMsg;
+  }catch(e){}
+  if(res.status===400||res.status===401||res.status===403)msg+=` (Toca el ⚙ para revisar/cambiar tu API key de ${providerLabel}.)`;
+  return new Error(msg);
+}
+
+/* Fábrica de adaptadores para cualquier API "compatible con OpenAI" (mismo
+   endpoint /chat/completions, mismo formato de tools y de respuesta):
+   ChatGPT, Groq, OpenRouter y Cerebras entran todos por aquí. */
+function orusMakeOpenAICompat(cfg){
+  return{
+    label:cfg.label,keyName:cfg.keyName,model:cfg.model,
+    keyLink:cfg.keyLink,keyLinkLabel:cfg.keyLinkLabel,
+    free:cfg.free,dailyLimit:cfg.dailyLimit,limitNote:cfg.limitNote,
+    buildTools(){return ORUS_FN_DEFS.map(f=>({type:'function',function:{name:f.name,description:f.description,parameters:orusToJsonSchema(f.parameters)}}))},
+    buildMessages(history,firstText){
+      const msgs=[{role:'system',content:ORUS_SYSTEM_INSTRUCTION}];
+      history.forEach(h=>msgs.push({role:h.role==='user'?'user':'assistant',content:h.text}));
+      msgs.push({role:'user',content:firstText});
+      return msgs;
+    },
+    async call(key,messages,tools){
+      const body={model:this.model,messages,tools};
+      if(cfg.useMaxCompletionTokens)body.max_completion_tokens=1024;
+      else{body.max_tokens=1024;body.temperature=0.6}
+      const res=await fetch(cfg.endpoint,{method:'POST',headers:{
+          'Content-Type':'application/json','Authorization':'Bearer '+key},
+        body:JSON.stringify(body)});
+      if(!res.ok)throw await orusHttpError(this.label,res);
+      const data=await res.json();
+      const msg=(data.choices&&data.choices[0]&&data.choices[0].message)||{};
+      if(msg.tool_calls&&msg.tool_calls.length){
+        messages.push({role:'assistant',content:msg.content||null,tool_calls:msg.tool_calls});
+        return{type:'toolCalls',calls:msg.tool_calls.map(tc=>({id:tc.id,name:tc.function.name,args:orusParseJSON(tc.function.arguments)}))};
+      }
+      const finalText=msg.content||'No obtuve una respuesta clara, ¿puedes reformular tu mensaje?';
+      messages.push({role:'assistant',content:finalText});
+      return{type:'text',text:finalText};
+    },
+    pushToolResults(messages,calls,results){
+      calls.forEach((c,i)=>messages.push({role:'tool',tool_call_id:c.id,content:JSON.stringify(results[i])}));
+    }
+  };
+}
+
+/* Un adaptador por proveedor: sabe armar el request, traducir las herramientas
+   y leer la respuesta (texto final o llamadas a función) en un formato común. */
+const ORUS_PROVIDERS={
+  gemini:{
+    label:'Gemini',keyName:'orus_gemini_key',model:'gemini-flash-latest',
+    keyLink:'https://aistudio.google.com/apikey',keyLinkLabel:'¿No tienes una? Consíguela gratis ↗',
+    free:true,dailyLimit:1500,limitNote:'~1500 consultas/día (aprox., puede variar según Google)',
+    buildTools(){return[{functionDeclarations:ORUS_FN_DEFS}]},
+    buildMessages(history,firstText){
+      const msgs=history.map(h=>({role:h.role==='user'?'user':'model',parts:[{text:h.text}]}));
+      msgs.push({role:'user',parts:[{text:firstText}]});
+      return msgs;
+    },
+    async call(key,messages,tools){
+      const url=`https://generativelanguage.googleapis.com/v1beta/models/${this.model}:generateContent`;
+      const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},
+        body:JSON.stringify({contents:messages,tools,
+          systemInstruction:{role:'system',parts:[{text:ORUS_SYSTEM_INSTRUCTION}]},
+          generationConfig:{temperature:0.6,maxOutputTokens:1024}})});
+      if(!res.ok)throw await orusHttpError(this.label,res);
+      const data=await res.json();
+      const cand=data&&data.candidates&&data.candidates[0];
+      const parts=(cand&&cand.content&&cand.content.parts)||[];
+      const fnPart=parts.find(p=>p.functionCall);
+      if(fnPart){
+        messages.push({role:'model',parts:[{functionCall:fnPart.functionCall}]});
+        return{type:'toolCalls',calls:[{id:null,name:fnPart.functionCall.name,args:fnPart.functionCall.args||{}}]};
+      }
+      const textPart=parts.find(p=>p.text);
+      const finalText=textPart?textPart.text:'No obtuve una respuesta clara, ¿puedes reformular tu mensaje?';
+      messages.push({role:'model',parts:[{text:finalText}]});
+      return{type:'text',text:finalText};
+    },
+    pushToolResults(messages,calls,results){
+      messages.push({role:'function',parts:calls.map((c,i)=>({functionResponse:{name:c.name,response:results[i]}}))});
+    }
+  },
+  claude:{
+    label:'Claude',keyName:'orus_claude_key',model:'claude-haiku-4-5-20251001',
+    keyLink:'https://console.anthropic.com/settings/keys',keyLinkLabel:'¿No tienes una? Consíguela aquí ↗',
+    free:false,dailyLimit:null,limitNote:'De pago (sin nivel gratis permanente; se cobra por uso)',
+    buildTools(){return ORUS_FN_DEFS.map(f=>({name:f.name,description:f.description,input_schema:orusToJsonSchema(f.parameters)}))},
+    buildMessages(history,firstText){
+      const msgs=history.map(h=>({role:h.role==='user'?'user':'assistant',content:h.text}));
+      msgs.push({role:'user',content:firstText});
+      return msgs;
+    },
+    async call(key,messages,tools){
+      const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{
+          'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01',
+          'anthropic-dangerous-direct-browser-access':'true'},
+        body:JSON.stringify({model:this.model,max_tokens:1024,temperature:0.6,system:ORUS_SYSTEM_INSTRUCTION,messages,tools})});
+      if(!res.ok)throw await orusHttpError(this.label,res);
+      const data=await res.json();
+      const blocks=data.content||[];
+      const toolBlocks=blocks.filter(b=>b.type==='tool_use');
+      if(toolBlocks.length){
+        messages.push({role:'assistant',content:blocks});
+        return{type:'toolCalls',calls:toolBlocks.map(b=>({id:b.id,name:b.name,args:b.input||{}}))};
+      }
+      const textBlock=blocks.find(b=>b.type==='text');
+      const finalText=textBlock?textBlock.text:'No obtuve una respuesta clara, ¿puedes reformular tu mensaje?';
+      messages.push({role:'assistant',content:finalText});
+      return{type:'text',text:finalText};
+    },
+    pushToolResults(messages,calls,results){
+      messages.push({role:'user',content:calls.map((c,i)=>({type:'tool_result',tool_use_id:c.id,content:JSON.stringify(results[i])}))});
+    }
+  },
+  openai:orusMakeOpenAICompat({
+    label:'ChatGPT',keyName:'orus_openai_key',model:'gpt-5-mini',
+    endpoint:'https://api.openai.com/v1/chat/completions',
+    keyLink:'https://platform.openai.com/api-keys',keyLinkLabel:'¿No tienes una? Consíguela aquí ↗',
+    useMaxCompletionTokens:true, // los modelos gpt-5 exigen este nombre en vez de max_tokens y no aceptan temperature libre
+    free:false,dailyLimit:null,limitNote:'De pago (sin nivel gratis permanente; se cobra por uso)'
+  }),
+  groq:orusMakeOpenAICompat({
+    label:'Groq',keyName:'orus_groq_key',model:'openai/gpt-oss-120b',
+    endpoint:'https://api.groq.com/openai/v1/chat/completions',
+    keyLink:'https://console.groq.com/keys',keyLinkLabel:'¿No tienes una? Consíguela gratis ↗',
+    free:true,dailyLimit:1000,limitNote:'~1000 consultas/día y 30/min (aprox., por organización)'
+  }),
+  openrouter:orusMakeOpenAICompat({
+    label:'OpenRouter',keyName:'orus_openrouter_key',model:'meta-llama/llama-3.3-70b-instruct:free',
+    endpoint:'https://openrouter.ai/api/v1/chat/completions',
+    keyLink:'https://openrouter.ai/settings/keys',keyLinkLabel:'¿No tienes una? Consíguela gratis ↗',
+    free:true,dailyLimit:50,limitNote:'~50 consultas/día (hasta 1000/día si recargas $10 en tu cuenta)'
+  }),
+  cerebras:orusMakeOpenAICompat({
+    label:'Cerebras',keyName:'orus_cerebras_key',model:'llama-3.3-70b',
+    endpoint:'https://api.cerebras.ai/v1/chat/completions',
+    keyLink:'https://cloud.cerebras.ai/platform/apikeys',keyLinkLabel:'¿No tienes una? Consíguela gratis ↗',
+    free:true,dailyLimit:14400,limitNote:'~14.400 consultas/día y 30/min (aprox.)'
+  }),
+  cohere:{
+    label:'Cohere',keyName:'orus_cohere_key',model:'command-a-03-2025',
+    keyLink:'https://dashboard.cohere.com/api-keys',keyLinkLabel:'¿No tienes una? Consíguela gratis ↗',
+    free:true,dailyLimit:33,limitNote:'~1000 consultas/mes (trial), aquí mostrado como ~33/día',
+    /* Cohere v2 usa el mismo formato de "tools" (JSON Schema estándar) que OpenAI */
+    buildTools(){return ORUS_FN_DEFS.map(f=>({type:'function',function:{name:f.name,description:f.description,parameters:orusToJsonSchema(f.parameters)}}))},
+    buildMessages(history,firstText){
+      const msgs=[{role:'system',content:ORUS_SYSTEM_INSTRUCTION}];
+      history.forEach(h=>msgs.push({role:h.role==='user'?'user':'assistant',content:h.text}));
+      msgs.push({role:'user',content:firstText});
+      return msgs;
+    },
+    async call(key,messages,tools){
+      const res=await fetch('https://api.cohere.com/v2/chat',{method:'POST',headers:{
+          'Content-Type':'application/json','Authorization':'Bearer '+key},
+        body:JSON.stringify({model:this.model,messages,tools,temperature:0.6,max_tokens:1024})});
+      if(!res.ok)throw await orusHttpError(this.label,res);
+      const data=await res.json();
+      const msg=data.message||{};
+      if(msg.tool_calls&&msg.tool_calls.length){
+        messages.push({role:'assistant',tool_plan:msg.tool_plan||'',tool_calls:msg.tool_calls});
+        return{type:'toolCalls',calls:msg.tool_calls.map(tc=>({id:tc.id,name:tc.function.name,args:orusParseJSON(tc.function.arguments)}))};
+      }
+      const textBlock=(msg.content||[]).find(b=>b.type==='text');
+      const finalText=textBlock?textBlock.text:'No obtuve una respuesta clara, ¿puedes reformular tu mensaje?';
+      messages.push({role:'assistant',content:finalText});
+      return{type:'text',text:finalText};
+    },
+    pushToolResults(messages,calls,results){
+      calls.forEach((c,i)=>messages.push({role:'tool',tool_call_id:c.id,
+        content:[{type:'document',document:{data:JSON.stringify(results[i])}}]}));
+    }
+  }
+};
+const ORUS_DEFAULT_PROVIDER='gemini';
 const ORUS_SYSTEM_INSTRUCTION=`Eres Orus, el asistente conversacional integrado en ORUS, una app de
 productividad universitaria. Respondes siempre en español, en un tono cercano,
 breve y útil, como si fueras parte de la app.
 
-Puedes usar las herramientas (funciones) disponibles para crear eventos, notas,
-objetivos, proyectos y tareas, cambiar el tema visual o navegar a otra sección
-de la app. Úsalas cuando el usuario te pida una acción concreta ("agrégame un
-evento...", "créame una nota...", "llévame a mis proyectos..."); si solo te
-está preguntando o pidiendo consejo, responde con texto normal sin llamar
-ninguna función.
+Puedes usar las herramientas (funciones) disponibles para crear, editar o
+eliminar eventos, marcar tareas de un proyecto como hechas, crear notas,
+objetivos, proyectos, tareas, hábitos y materias (con su clase en el
+horario), cambiar el tema visual o navegar a otra sección de la app. Úsalas
+cuando el usuario te pida una acción concreta ("agrégame un evento...",
+"marca como hecha la tarea...", "créame un hábito de..."); si solo te está
+preguntando o pidiendo consejo, responde con texto normal sin llamar ninguna
+función.
 
 Si el mensaje incluye un bloque de contexto entre corchetes con datos de la
-app (fecha de hoy, próximos eventos, tareas pendientes, etc.), úsalo para
-responder con precisión, pero no lo repitas literalmente ni menciones que es
-"contexto". Si el usuario desactivó el acceso a sus datos, no inventes ni
-asumas nada sobre su calendario, notas o proyectos: dilo con naturalidad si
-hace falta.
+app (fecha de hoy, eventos y clases de hoy, próximos eventos de la semana,
+tareas y objetivos pendientes, hábitos diarios, proyectos con el conteo de
+tareas por estado, etc.), úsalo para responder con precisión, pero no lo
+repitas literalmente ni menciones que es "contexto". El campo "proyectos"
+ya trae, para cada proyecto, cuántas tareas tiene por hacer, en proceso, en
+revisión y terminadas: confía en esas cifras tal cual y respóndelas
+directamente, sin decir que el proyecto está vacío ni inventar otro número.
+Solo usa la función consultar_proyecto si necesitas el texto de las tareas
+en sí (cuáles son, no solo cuántas) o la descripción del proyecto. Si el
+usuario pide el contenido, el texto o un resumen de las notas de un
+proyecto, usa la función leer_notas_proyecto — nunca digas que no puedes
+leer notas existentes, sí puedes. Cuando el
+usuario pregunte algo general como "¿qué tengo hoy?", "¿cómo va mi semana?"
+o "resúmeme el día", NO llames ninguna función: arma tú mismo un resumen
+breve y natural a partir de ese contexto (eventos_hoy, clases_hoy,
+habitos_diarios_hoy, tareas_pendientes, eventos_semana, etc.), sin necesidad
+de que el usuario te dé más detalles.
+
+Si el usuario desactivó el acceso a sus datos (no ves bloque de contexto),
+dilo con naturalidad y no inventes nada sobre su calendario, notas o
+proyectos. Pero si sí tienes contexto o el resultado de una función, nunca le
+pidas al usuario que "te comparta los datos", que "active un permiso" o que
+"le dé acceso a tu cuenta": ya lo tienes o puedes consultarlo con una
+función: úsala.
+
+Cuando vayas a editar, eliminar o marcar algo que ya existe (un evento, una
+tarea), identifica el elemento por el nombre o texto que el usuario mencionó;
+si hay varios que podrían coincidir o no encuentras ninguno, dilo y pide que
+lo aclare en vez de adivinar.
 
 Nunca inventes que hiciste una acción: solo confirma una acción como
 realizada después de que el resultado de la función correspondiente te lo
 confirme.`;
 function orusBoot(){
-  let orusHistory=[]; // historial en formato "contents" de Gemini
+  let orusHistory=[]; // historial genérico: [{role:'user'|'model', text}]
   let orusBusy=false;
 
   function orusDataAccess(){return state.settings.orusDataAccess!==false}
-  function orusGetApiKey(){try{return localStorage.getItem('orus_gemini_key')||''}catch(e){return ''}}
-  function orusSetApiKey(k){try{if(k)localStorage.setItem('orus_gemini_key',k);else localStorage.removeItem('orus_gemini_key')}catch(e){}}
+  function orusGetProviderId(){
+    const p=state.settings.orusProvider;
+    return ORUS_PROVIDERS[p]?p:ORUS_DEFAULT_PROVIDER;
+  }
+  function orusSetProviderId(p){
+    if(!ORUS_PROVIDERS[p])return;
+    state.settings.orusProvider=p;save();
+  }
+  function orusProvider(){return ORUS_PROVIDERS[orusGetProviderId()]}
+  function orusGetApiKey(providerId){
+    const p=ORUS_PROVIDERS[providerId||orusGetProviderId()];
+    try{return localStorage.getItem(p.keyName)||''}catch(e){return ''}
+  }
+  function orusSetApiKey(providerId,k){
+    const p=ORUS_PROVIDERS[providerId||orusGetProviderId()];
+    try{if(k)localStorage.setItem(p.keyName,k);else localStorage.removeItem(p.keyName)}catch(e){}
+  }
 
   const bubble=$('#orusBubble'), panel=$('#orusPanel'), msgsEl=$('#orusMsgs'),
         oInput=$('#orusInput'), oSend=$('#orusSendBtn'), oClose=$('#orusCloseBtn'),
         oHandle=$('#orusDragHandle'), oDataToggle=$('#orusDataToggle'), oDot=$('#orusDot'),
-        oKeyBtn=$('#orusKeyBtn'), oKeyRow=$('#orusKeyRow'), oKeyInput=$('#orusKeyInput'), oKeySave=$('#orusKeySave');
+        oKeyBtn=$('#orusKeyBtn'), oKeyRow=$('#orusKeyRow'), oKeyInput=$('#orusKeyInput'), oKeySave=$('#orusKeySave'),
+        oProviderSel=$('#orusProviderSel'), oKeyLink=$('#orusKeyLink'),
+        oFreeTag=$('#orusFreeTag'), oUsage=$('#orusUsage'),
+        oExportBtn=$('#orusExportBtn'), oClearBtn=$('#orusClearBtn');
 
-  function orusOpenKeyRow(){oKeyRow.style.display='flex';oKeyInput.value=orusGetApiKey();oKeyInput.focus()}
-  oKeyBtn.onclick=()=>{oKeyRow.style.display=oKeyRow.style.display==='flex'?'none':'flex';if(oKeyRow.style.display==='flex'){oKeyInput.value=orusGetApiKey();oKeyInput.focus()}};
+  /* Contador local de consultas por proveedor: no viene de la API (la mayoría de
+     estos proveedores no exponen la cuota restante al navegador), es solo un conteo
+     que ORUS lleva en este dispositivo para orientar cuánto llevas usado hoy. */
+  function orusToday(){return iso(new Date())}
+  function orusUsageKey(pid){return 'orus_usage_'+pid+'_'+orusToday()}
+  function orusGetUsageCount(pid){return +(localStorage.getItem(orusUsageKey(pid))||0)}
+  function orusIncUsageCount(pid){
+    const n=orusGetUsageCount(pid)+1;
+    try{localStorage.setItem(orusUsageKey(pid),String(n))}catch(e){}
+    return n;
+  }
+  function orusRenderProviderInfo(){
+    const p=orusProvider();
+    oFreeTag.textContent=p.free?'Gratis 🟢':'De pago 💳';
+    oFreeTag.className='op-freetag '+(p.free?'free':'paid');
+    if(!p.free){
+      oUsage.innerHTML='<b>'+esc(p.label)+'</b> es de pago: no tiene un nivel gratis permanente.';
+      orusSetLimitDot(false);
+      return;
+    }
+    const used=orusGetUsageCount(orusGetProviderId());
+    const lim=p.dailyLimit||0;
+    const pct=lim?Math.min(100,Math.round(used/lim*100)):0;
+    const reached=lim>0&&used>=lim;
+    oUsage.innerHTML=`<b>${used}</b>${lim?' / '+lim:''} consultas usadas hoy con ${esc(p.label)}`+
+      (p.limitNote?' <br>'+esc(p.limitNote):'')+
+      (lim?`<div class="op-usagebar"><i class="${pct>=90?'hot':''}" style="width:${pct}%"></i></div>`:'')+
+      (reached?`<div class="op-limitwarn">⚠ Llegaste al límite estimado de hoy con ${esc(p.label)}.<button type="button" id="orusSwitchProv">Cambiar de proveedor</button></div>`:'')+
+      '<br>Conteo estimado en este dispositivo, no oficial del proveedor.';
+    if(reached){
+      const btn=$('#orusSwitchProv');
+      if(btn)btn.onclick=()=>oProviderSel.focus();
+    }
+    orusSetLimitDot(reached);
+  }
+  function orusSetLimitDot(on){
+    oDot.classList.toggle('show',on);
+    oDot.classList.toggle('warn',on);
+  }
+
+  function orusRefreshKeyRow(){
+    const p=orusProvider();
+    oKeyInput.placeholder='Pega tu API key de '+p.label;
+    oKeyInput.value=orusGetApiKey();
+    oKeyLink.href=p.keyLink;
+    oKeyLink.textContent=p.keyLinkLabel;
+    oKeyBtn.title='Configurar API key de '+p.label;
+    orusRenderProviderInfo();
+  }
+  function orusOpenKeyRow(){orusRefreshKeyRow();oKeyRow.style.display='flex';oKeyInput.focus()}
+  oProviderSel.value=orusGetProviderId();
+  oProviderSel.addEventListener('change',()=>{
+    orusSetProviderId(oProviderSel.value);
+    orusRefreshKeyRow();
+    orusAddMsg('Cambié a '+orusProvider().label+'.'+(orusGetApiKey()?'':' Necesito tu API key de '+orusProvider().label+' para responder.'),'sys');
+    if(!orusGetApiKey())orusOpenKeyRow();
+  });
+  oKeyBtn.onclick=()=>{
+    if(oKeyRow.style.display==='flex'){oKeyRow.style.display='none';return}
+    orusOpenKeyRow();
+  };
   oKeySave.onclick=()=>{
     const v=oKeyInput.value.trim();
-    orusSetApiKey(v);
+    const p=orusProvider();
+    orusSetApiKey(null,v);
     oKeyRow.style.display='none';
-    orusAddMsg(v?'Listo, guardé tu API key en este navegador. ¡Ya puedes escribirme!':'Borré tu API key de este navegador.','sys');
+    orusAddMsg(v?`Listo, guardé tu API key de ${p.label} en este navegador. ¡Ya puedes escribirme!`:`Borré tu API key de ${p.label} de este navegador.`,'sys');
   };
   oKeyInput.addEventListener('keydown',e=>{if(e.key==='Enter')oKeySave.click()});
+
+  function orusExportConversation(){
+    if(!orusHistory.length){orusAddMsg('Todavía no hay conversación para exportar.','sys');return}
+    const lines=orusHistory.map(h=>(h.role==='user'?'Tú':'Orus')+': '+h.text);
+    const text='Conversación con Orus — '+new Date().toLocaleString()+'\n\n'+lines.join('\n\n');
+    const blob=new Blob([text],{type:'text/plain;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;a.download='conversacion-orus-'+orusToday()+'.txt';
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),2000);
+  }
+  function orusClearHistory(){
+    if(!orusHistory.length&&!msgsEl.children.length)return;
+    if(!confirm('¿Borrar toda la conversación con Orus? No se puede deshacer.'))return;
+    orusHistory=[];
+    msgsEl.innerHTML='';
+    orusAddMsg('Historial borrado. ¿En qué te ayudo?','sys');
+  }
+  oExportBtn.onclick=orusExportConversation;
+  oClearBtn.onclick=orusClearHistory;
 
   function orusApplyVisibility(){
     const on=state.settings.orusEnabled!==false;
@@ -6429,7 +7054,9 @@ function orusBoot(){
     if(state.settings.orusEnabled===false)return;
     panel.classList.toggle('open');
     if(panel.classList.contains('open')){oDot.classList.remove('show');oInput.focus()}
+    else{orusRenderProviderInfo()}
   }
+  window.orusToggle=orusToggle;
   oClose.onclick=()=>panel.classList.remove('open');
 
   function orusAddMsg(text,who){
@@ -6444,40 +7071,68 @@ function orusBoot(){
   /* Resumen mínimo del estado, solo si el usuario permite el acceso a sus datos */
   function orusContextSummary(){
     if(!orusDataAccess())return null;
-    const today=iso(new Date());
+    const now=new Date();
+    const today=iso(now);
+    const dayNum=((now.getDay()+6)%7)+1; // 1=Lunes...7=Domingo
+    const weekEnd=iso(new Date(now.getTime()+6*86400000));
+
+    const eventosHoy=(state.events||[]).filter(e=>e.date===today)
+      .sort((a,b)=>(a.time||'').localeCompare(b.time||''))
+      .map(e=>`${e.time?e.time+' · ':''}${e.title}${e.done?' (hecho)':''}`);
+
+    const clasesHoy=dayNum<=6?state.schedule.filter(c=>c.day===dayNum)
+      .sort((a,b)=>timeToMin(a.start)-timeToMin(b.start))
+      .map(c=>{const s=findSubject(c.subjectId);return `${c.start}-${c.end} · ${s?s.name:'(materia)'}${c.room?' · '+c.room:''}`}):[];
+
     const prox=(state.events||[]).filter(e=>!e.done&&e.date>=today)
       .sort((a,b)=>(a.date+(a.time||'')).localeCompare(b.date+(b.time||''))).slice(0,6)
       .map(e=>`${e.date}${e.time?' '+e.time:''} · ${e.title}`);
+
+    const eventosSemana=(state.events||[]).filter(e=>e.date>=today&&e.date<=weekEnd)
+      .sort((a,b)=>(a.date+(a.time||'')).localeCompare(b.date+(b.time||'')))
+      .map(e=>`${e.date}${e.time?' '+e.time:''} · ${e.title}`).slice(0,20);
+
     const pend=[];
-    (state.projects||[]).forEach(p=>{(p.tasks||[]).forEach(t=>{if(ktStatus(t)!=='done')pend.push(`[${p.name}] ${t.text}`)})});
+    (state.projects||[]).forEach(p=>{(p.checklist||[]).forEach(t=>{if(ktStatus(t)!=='done')pend.push(`[${p.name}] ${t.text}`)})});
+
+    const objetivosPendientes=(state.goals||[]).filter(g=>!g.done).map(g=>`(${g.period}) ${g.text}`).slice(0,10);
+
+    const habitosHoy=(state.habits||[]).filter(h=>(h.freq||'weekly')==='daily').map(h=>{
+      const done=!!(state.habitLogs[h.id]||{})[periodKeyG('daily',currentPeriodIdx('daily'))];
+      return `${h.name}${done?' (cumplido)':' (pendiente)'}`;
+    });
+
+    /* Conteo exacto por estado de cada proyecto, calculado aquí mismo (no depende de
+       que el modelo decida llamar a consultar_proyecto): así la cifra que puede
+       "leer" del contexto siempre coincide con el tablero real. */
+    const proyectosDetalle=(state.projects||[]).filter(p=>!p.archived).map(p=>{
+      const c={todo:0,doing:0,review:0,done:0};
+      (p.checklist||[]).forEach(t=>{const st=ktStatus(t);if(c[st]!==undefined)c[st]++;else c.todo++});
+      return `${p.name}: ${c.todo} por hacer, ${c.doing} en proceso, ${c.review} en revisión, ${c.done} terminadas (total ${(p.checklist||[]).length})`;
+    }).slice(0,15);
+
     return{
       fecha_hoy:today,
+      eventos_hoy:eventosHoy,
+      clases_hoy:clasesHoy,
+      habitos_diarios_hoy:habitosHoy,
       proximos_eventos:prox,
+      eventos_semana:eventosSemana,
       tareas_pendientes:pend.slice(0,10),
-      proyectos:(state.projects||[]).filter(p=>!p.archived).map(p=>p.name).slice(0,15),
-      materias:(state.subjects||[]).map(s=>s.name).slice(0,15),
+      objetivos_pendientes:objetivosPendientes,
+      proyectos:proyectosDetalle,
+      materias:(state.subjects||[]).filter(s=>!s.archived).map(s=>s.name).slice(0,15),
       notas_count:(state.notes||[]).length
     };
   }
 
-  /* Catálogo cerrado de herramientas que Orus puede invocar (function calling de Gemini) */
-  const ORUS_TOOLS=[{functionDeclarations:[
-    {name:'crear_evento',description:'Crea un evento/recordatorio en el calendario de ORUS.',parameters:{type:'OBJECT',properties:{
-      titulo:{type:'STRING'},fecha:{type:'STRING',description:'formato YYYY-MM-DD'},hora:{type:'STRING',description:'formato HH:MM, opcional'},
-      descripcion:{type:'STRING'}},required:['titulo','fecha']}},
-    {name:'crear_nota',description:'Crea una nota nueva en ORUS.',parameters:{type:'OBJECT',properties:{
-      titulo:{type:'STRING'},contenido:{type:'STRING'}},required:['titulo']}},
-    {name:'crear_objetivo',description:'Crea un objetivo/meta.',parameters:{type:'OBJECT',properties:{
-      texto:{type:'STRING'},periodo:{type:'STRING',description:"'day', 'week' o 'month'"}},required:['texto']}},
-    {name:'crear_proyecto',description:'Crea un proyecto nuevo en ORUS.',parameters:{type:'OBJECT',properties:{
-      nombre:{type:'STRING'},descripcion:{type:'STRING'}},required:['nombre']}},
-    {name:'crear_tarea_proyecto',description:'Agrega una tarea al tablero de un proyecto existente, por nombre.',parameters:{type:'OBJECT',properties:{
-      proyecto:{type:'STRING'},texto:{type:'STRING'}},required:['proyecto','texto']}},
-    {name:'cambiar_tema',description:'Cambia el tema visual de la app.',parameters:{type:'OBJECT',properties:{
-      modo:{type:'STRING',description:"'claro' u 'oscuro'"}},required:['modo']}},
-    {name:'ir_a_pagina',description:'Navega a una sección de la app.',parameters:{type:'OBJECT',properties:{
-      pagina:{type:'STRING',description:'una de: dashboard, calendar, projects, notes, schedule, vision, habits, settings'}},required:['pagina']}}
-  ]}];
+  function orusFindEvent(titulo,fecha){
+    const t=String(titulo||'').trim().toLowerCase();
+    const pool=(state.events||[]).filter(e=>fecha?e.date===fecha:true);
+    return pool.find(e=>e.title&&e.title.trim().toLowerCase()===t)
+        ||pool.find(e=>e.title&&e.title.trim().toLowerCase().includes(t));
+  }
+
 
   function orusFindProject(nombre){
     const n=String(nombre||'').trim().toLowerCase();
@@ -6496,6 +7151,23 @@ function orusBoot(){
           save();renderAll();
           return{ok:true,mensaje:`Evento "${args.titulo}" creado el ${args.fecha}${args.hora?' a las '+args.hora:''}.`};
         }
+        case 'editar_evento':{
+          const ev=orusFindEvent(args.titulo_actual,args.fecha_actual);
+          if(!ev)return{ok:false,error:`No encontré un evento llamado "${args.titulo_actual}"${args.fecha_actual?' el '+args.fecha_actual:''}`};
+          if(args.nuevo_titulo)ev.title=args.nuevo_titulo;
+          if(args.nueva_fecha)ev.date=args.nueva_fecha;
+          if(args.nueva_hora!==undefined)ev.time=args.nueva_hora;
+          if(args.nueva_descripcion!==undefined)ev.desc=args.nueva_descripcion;
+          save();renderAll();
+          return{ok:true,mensaje:`Evento "${ev.title}" actualizado.`};
+        }
+        case 'eliminar_evento':{
+          const ev=orusFindEvent(args.titulo,args.fecha);
+          if(!ev)return{ok:false,error:`No encontré un evento llamado "${args.titulo}"${args.fecha?' el '+args.fecha:''}`};
+          state.events=state.events.filter(e=>e.id!==ev.id);
+          save();renderAll();
+          return{ok:true,mensaje:`Evento "${ev.title}" eliminado.`};
+        }
         case 'crear_nota':{
           if(!args.titulo)return{ok:false,error:'Falta título'};
           const n={id:uid(),title:args.titulo,blocks:[{id:uid(),type:'p',html:esc(args.contenido||'')}],pinned:false,updatedAt:Date.now()};
@@ -6511,7 +7183,7 @@ function orusBoot(){
         }
         case 'crear_proyecto':{
           if(!args.nombre)return{ok:false,error:'Falta el nombre del proyecto'};
-          state.projects.push({id:uid(),name:args.nombre,desc:args.descripcion||'',done:false,archived:false,tasks:[],notes:[],files:[]});
+          state.projects.push({id:uid(),name:args.nombre,desc:args.descripcion||'',done:false,archived:false,checklist:[],notes:[],files:[]});
           save();renderAll();
           return{ok:true,mensaje:`Proyecto "${args.nombre}" creado.`};
         }
@@ -6519,10 +7191,71 @@ function orusBoot(){
           const p=orusFindProject(args.proyecto);
           if(!p)return{ok:false,error:`No encontré un proyecto llamado "${args.proyecto}"`};
           if(!args.texto)return{ok:false,error:'Falta el texto de la tarea'};
-          if(!Array.isArray(p.tasks))p.tasks=[];
-          p.tasks.push({id:uid(),text:args.texto,done:false,status:'todo'});
-          save();renderAll();
+          if(!Array.isArray(p.checklist))p.checklist=[];
+          const nuevaTarea={id:uid(),text:args.texto,done:false,status:'todo'};
+          p.checklist.push(nuevaTarea);
+          syncTaskEvent(p,nuevaTarea);
+          ktRecalc(p);save();renderAll();
           return{ok:true,mensaje:`Tarea agregada a "${p.name}".`};
+        }
+        case 'marcar_tarea_hecha':{
+          const p=orusFindProject(args.proyecto);
+          if(!p)return{ok:false,error:`No encontré un proyecto llamado "${args.proyecto}"`};
+          const txt=String(args.texto||'').trim().toLowerCase();
+          const tasks=p.checklist||[];
+          const t=tasks.find(x=>x.text&&x.text.trim().toLowerCase()===txt)
+               ||tasks.find(x=>x.text&&x.text.trim().toLowerCase().includes(txt));
+          if(!t)return{ok:false,error:`No encontré una tarea "${args.texto}" en "${p.name}"`};
+          const hecha=args.hecha!==false;
+          t.done=hecha;t.status=hecha?'done':'todo';
+          syncTaskEvent(p,t);
+          ktRecalc(p);save();renderAll();
+          return{ok:true,mensaje:`Tarea "${t.text}" marcada como ${hecha?'hecha':'pendiente'} en "${p.name}".`};
+        }
+        case 'consultar_proyecto':{
+          const p=orusFindProject(args.nombre);
+          if(!p)return{ok:false,error:`No encontré un proyecto llamado "${args.nombre}"`};
+          const tasks=p.checklist||[];
+          const porEstado={todo:[],doing:[],review:[],done:[]};
+          tasks.forEach(t=>{const st=ktStatus(t);(porEstado[st]||porEstado.todo).push(t.text)});
+          return{ok:true,proyecto:p.name,descripcion:p.desc||'',
+            por_hacer:porEstado.todo,en_proceso:porEstado.doing,en_revision:porEstado.review,terminadas:porEstado.done,
+            total_tareas:tasks.length};
+        }
+        case 'leer_notas_proyecto':{
+          const p=orusFindProject(args.nombre);
+          if(!p)return{ok:false,error:`No encontré un proyecto llamado "${args.nombre}"`};
+          const blocks=ensureBlocks(p);
+          const partes=[];
+          blocks.forEach(b=>{
+            if(b.type==='text'){ if(b.text&&b.text.trim())partes.push(b.text.trim()) }
+            else if(b.type==='table'){ (b.rows||[]).forEach(r=>{ const fila=r.filter(c=>c&&c.trim()).join(' | '); if(fila)partes.push(fila) }) }
+            else if(b.type==='file'||b.type==='html'||b.type==='image'||b.type==='video'||b.type==='pdf'){ partes.push(`[Adjunto: ${b.name||b.type}]`) }
+          });
+          const contenido=partes.join('\n');
+          return{ok:true,proyecto:p.name,contenido:contenido||'(Las notas de este proyecto están vacías)'};
+        }
+        case 'crear_habito':{
+          if(!args.nombre)return{ok:false,error:'Falta el nombre del hábito'};
+          const freq=['daily','weekly','monthly','yearly'].includes(args.frecuencia)?args.frecuencia:'daily';
+          if(!Array.isArray(state.habits))state.habits=[];
+          state.habits.push({id:uid(),name:args.nombre,category:args.categoria||'',color:'green',freq,auto:null,createdAt:iso(new Date())});
+          save();renderAll();
+          return{ok:true,mensaje:`Hábito "${args.nombre}" creado (seguimiento ${freq}).`};
+        }
+        case 'agregar_materia':{
+          if(!args.nombre)return{ok:false,error:'Falta el nombre de la materia'};
+          const subj={id:uid(),name:args.nombre,teacher:args.profesor||'',color:'mint',credits:Math.max(1,+args.creditos||3),maxFaltas:null,grades:[],faltas:0,faltaLog:[],materials:[],cortes:[],notaMinima:3,email:'',officeHours:'',classroomUrl:'',syllabus:'',semester:'',archived:false};
+          state.subjects.push(subj);
+          let claseMsg='';
+          const diaMap={lunes:1,martes:2,miercoles:3,'miércoles':3,jueves:4,viernes:5,sabado:6,'sábado':6};
+          const diaKey=String(args.dia||'').trim().toLowerCase();
+          if(diaKey&&diaMap[diaKey]&&args.hora_inicio&&args.hora_fin){
+            state.schedule.push({id:uid(),subjectId:subj.id,day:diaMap[diaKey],start:args.hora_inicio,end:args.hora_fin,room:args.aula||''});
+            claseMsg=` y agregué la clase los ${args.dia} de ${args.hora_inicio} a ${args.hora_fin}`;
+          }
+          save();renderAll();
+          return{ok:true,mensaje:`Materia "${args.nombre}" creada${claseMsg}.`};
         }
         case 'cambiar_tema':{
           const dark=String(args.modo||'').toLowerCase().includes('osc');
@@ -6541,23 +7274,6 @@ function orusBoot(){
     }catch(e){return{ok:false,error:'Error ejecutando la acción: '+(e&&e.message||e)}}
   }
 
-  async function orusCallBackend(contents){
-    const key=orusGetApiKey();
-    if(!key){const e=new Error('Necesito tu API key de Gemini. Toca el ⚙ de arriba para ponerla (es gratis y toma 1 minuto).');e.noKey=true;throw e}
-    const url=`https://generativelanguage.googleapis.com/v1beta/models/${ORUS_MODEL}:generateContent`;
-    const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},
-      body:JSON.stringify({contents,tools:ORUS_TOOLS,
-        systemInstruction:{role:'system',parts:[{text:ORUS_SYSTEM_INSTRUCTION}]},
-        generationConfig:{temperature:0.6,maxOutputTokens:1024}})});
-    if(!res.ok){
-      let msg='Orus no pudo responder. Revisa que tu API key de Gemini sea correcta.';
-      try{const j=await res.json();if(j&&j.error&&j.error.message)msg=j.error.message}catch(e){}
-      if(res.status===400||res.status===403)msg+=' (Toca el ⚙ para revisar/cambiar tu API key.)';
-      throw new Error(msg);
-    }
-    return res.json();
-  }
-
   async function orusSend(userText){
     if(orusBusy)return;
     userText=(userText||'').trim();if(!userText)return;
@@ -6567,32 +7283,45 @@ function orusBoot(){
     const thinking=orusAddMsg('Orus está pensando…','bot');
     thinking.classList.add('om-think');
 
+    const provider=orusProvider();
+    const key=orusGetApiKey();
+    if(!key){
+      thinking.remove();
+      orusAddMsg(`Necesito tu API key de ${provider.label}. Toca el ⚙ de arriba para ponerla (es gratis y toma 1 minuto).`,'sys');
+      orusOpenKeyRow();
+      orusBusy=false;oSend.disabled=false;oInput.focus();
+      return;
+    }
+
     const ctx=orusContextSummary();
     const sysNote=ctx
       ?'[Contexto actual de ORUS, solo para tu referencia, no lo repitas literalmente]\n'+JSON.stringify(ctx)
       :'[El usuario desactivó el acceso a sus datos de ORUS: responde sin asumir nada sobre su calendario, notas o proyectos.]';
-    orusHistory.push({role:'user',parts:[{text:sysNote+'\n\nMensaje del usuario: '+userText}]});
+    const firstText=sysNote+'\n\nMensaje del usuario: '+userText;
+
+    // Historial provisional en el formato del proveedor elegido, solo para esta ronda
+    // (evita mezclar formatos de distintos proveedores si el usuario cambia de uno a otro).
+    const messages=provider.buildMessages(orusHistory,firstText);
+    const tools=provider.buildTools();
 
     try{
-      let guard=0,done=false;
-      while(guard++<5&&!done){
-        const data=await orusCallBackend(orusHistory);
-        const cand=data&&data.candidates&&data.candidates[0];
-        const parts=(cand&&cand.content&&cand.content.parts)||[];
-        const fnPart=parts.find(p=>p.functionCall);
-        if(fnPart){
-          orusHistory.push({role:'model',parts:[{functionCall:fnPart.functionCall}]});
-          const result=orusExecTool(fnPart.functionCall.name,fnPart.functionCall.args);
-          orusHistory.push({role:'function',parts:[{functionResponse:{name:fnPart.functionCall.name,response:result}}]});
+      let guard=0,finalText=null;
+      while(guard++<5&&finalText===null){
+        const result=await provider.call(key,messages,tools);
+        orusIncUsageCount(orusGetProviderId());
+        orusRenderProviderInfo();
+        if(result.type==='toolCalls'){
+          const results=result.calls.map(c=>orusExecTool(c.name,c.args));
+          provider.pushToolResults(messages,result.calls,results);
           continue;
         }
-        const textPart=parts.find(p=>p.text);
-        const finalText=textPart?textPart.text:'No obtuve una respuesta clara, ¿puedes reformular tu mensaje?';
-        orusHistory.push({role:'model',parts:[{text:finalText}]});
-        thinking.remove();
-        orusAddMsg(finalText,'bot');
-        done=true;
+        finalText=result.text;
       }
+      if(finalText===null)finalText='Orus no terminó de resolver tu pedido, ¿puedes intentar de nuevo con menos pasos?';
+      orusHistory.push({role:'user',text:userText});
+      orusHistory.push({role:'model',text:finalText});
+      thinking.remove();
+      orusAddMsg(finalText,'bot');
     }catch(e){
       thinking.remove();
       orusAddMsg(e.message||'Ocurrió un error contactando a Orus.','sys');
@@ -6613,10 +7342,12 @@ function orusBoot(){
     orusLoadPos();
     orusApplyVisibility();
     oDataToggle.checked=orusDataAccess();
+    oProviderSel.value=orusGetProviderId();
+    orusRenderProviderInfo();
     if(orusHistory.length===0){
       orusAddMsg('¡Hola! Soy Orus 👋 Puedo crear eventos, notas, objetivos y proyectos, cambiar el tema o llevarte a otra sección. ¿En qué te ayudo?','bot');
       if(!orusGetApiKey()){
-        orusAddMsg('Para responderte necesito una API key gratis de Gemini: toca el ⚙ de arriba, pégala ahí y listo (tarda 1 minuto).','sys');
+        orusAddMsg(`Para responderte necesito una API key gratis de ${orusProvider().label}: toca el ⚙ de arriba, elige el proveedor que prefieras, pega tu key ahí y listo (tarda 1 minuto).`,'sys');
         orusOpenKeyRow();
       }
     }
@@ -6633,13 +7364,28 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 <div id="orusPanel">
   <div class="op-head" id="orusDragHandle">
     <div class="op-title">Orus<small>tu asistente en ORUS</small></div>
-    <button class="op-close" id="orusKeyBtn" title="Configurar API key de Gemini" style="font-size:16px;margin-right:2px">⚙</button>
+    <button class="op-close" id="orusExportBtn" title="Exportar conversación" style="font-size:15px;margin-right:2px">📤</button>
+    <button class="op-close" id="orusClearBtn" title="Limpiar historial" style="font-size:15px;margin-right:2px">🗑</button>
+    <button class="op-close" id="orusKeyBtn" title="Configurar API key" style="font-size:16px;margin-right:2px">⚙</button>
     <button class="op-close" id="orusCloseBtn" title="Cerrar">✕</button>
   </div>
   <div class="op-keyrow" id="orusKeyRow">
-    <input id="orusKeyInput" type="password" placeholder="Pega tu API key de Gemini" autocomplete="off" />
+    <div class="op-provrow">
+      <select id="orusProviderSel">
+        <option value="gemini">Gemini · Gratis 🟢</option>
+        <option value="groq">Groq · Gratis 🟢</option>
+        <option value="openrouter">OpenRouter · Gratis 🟢</option>
+        <option value="cerebras">Cerebras · Gratis 🟢</option>
+        <option value="cohere">Cohere · Gratis 🟢</option>
+        <option value="claude">Claude · De pago 💳</option>
+        <option value="openai">ChatGPT · De pago 💳</option>
+      </select>
+      <span class="op-freetag" id="orusFreeTag">Gratis</span>
+    </div>
+    <input id="orusKeyInput" type="password" placeholder="Pega tu API key" autocomplete="off" />
     <button id="orusKeySave">Guardar</button>
-    <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">¿No tienes una? Consíguela gratis ↗</a>
+    <a id="orusKeyLink" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">¿No tienes una? Consíguela gratis ↗</a>
+    <div class="op-usage" id="orusUsage"></div>
   </div>
   <div id="orusMsgs"></div>
   <div class="op-ctx">
