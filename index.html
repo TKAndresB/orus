@@ -499,6 +499,10 @@ article.vision.has-img p{color:#fff}
 #orusPanel .op-off button{margin-top:10px}
 #orusPanel .op-ctx{padding:8px 14px;border-top:1px dashed var(--glass-border);display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;color:var(--muted)}
 #orusPanel .op-ctx label.switch{transform:scale(.8);transform-origin:right center}
+#orusPanel .op-keyrow{display:none;flex-direction:column;gap:6px;padding:10px 14px;border-top:1px dashed var(--glass-border);font-size:11.5px}
+#orusPanel .op-keyrow input{border-radius:10px;border:1px solid var(--line);padding:7px 10px;background:var(--card);color:var(--ink);font-size:12.5px}
+#orusPanel .op-keyrow button{align-self:flex-end;border-radius:10px;border:0;background:var(--green-dark);color:#fff;padding:6px 12px;cursor:pointer;font-size:12px}
+#orusPanel .op-keyrow a{color:var(--muted);text-decoration:underline}
 .toast button{color:#cfe8d8;font-weight:700;font-size:12px}
 kbd{background:var(--soft);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;font-size:11px;font-family:inherit}
 
@@ -6314,16 +6318,53 @@ async function libPlay(lib,it,list){
 }
 
 /* ================= Orus: asistente IA flotante ================= */
+/* Cada persona pone su propia API key de Gemini (gratis, en https://aistudio.google.com/apikey).
+   Se guarda solo en su navegador (localStorage) y el navegador le habla directo a Gemini:
+   ya no depende de ninguna función/servidor propio. */
+const ORUS_MODEL='gemini-flash-latest';
+const ORUS_SYSTEM_INSTRUCTION=`Eres Orus, el asistente conversacional integrado en ORUS, una app de
+productividad universitaria. Respondes siempre en español, en un tono cercano,
+breve y útil, como si fueras parte de la app.
+
+Puedes usar las herramientas (funciones) disponibles para crear eventos, notas,
+objetivos, proyectos y tareas, cambiar el tema visual o navegar a otra sección
+de la app. Úsalas cuando el usuario te pida una acción concreta ("agrégame un
+evento...", "créame una nota...", "llévame a mis proyectos..."); si solo te
+está preguntando o pidiendo consejo, responde con texto normal sin llamar
+ninguna función.
+
+Si el mensaje incluye un bloque de contexto entre corchetes con datos de la
+app (fecha de hoy, próximos eventos, tareas pendientes, etc.), úsalo para
+responder con precisión, pero no lo repitas literalmente ni menciones que es
+"contexto". Si el usuario desactivó el acceso a sus datos, no inventes ni
+asumas nada sobre su calendario, notas o proyectos: dilo con naturalidad si
+hace falta.
+
+Nunca inventes que hiciste una acción: solo confirma una acción como
+realizada después de que el resultado de la función correspondiente te lo
+confirme.`;
 function orusBoot(){
-  const ORUS_ENDPOINT='/.netlify/functions/orus-chat';
   let orusHistory=[]; // historial en formato "contents" de Gemini
   let orusBusy=false;
 
   function orusDataAccess(){return state.settings.orusDataAccess!==false}
+  function orusGetApiKey(){try{return localStorage.getItem('orus_gemini_key')||''}catch(e){return ''}}
+  function orusSetApiKey(k){try{if(k)localStorage.setItem('orus_gemini_key',k);else localStorage.removeItem('orus_gemini_key')}catch(e){}}
 
   const bubble=$('#orusBubble'), panel=$('#orusPanel'), msgsEl=$('#orusMsgs'),
         oInput=$('#orusInput'), oSend=$('#orusSendBtn'), oClose=$('#orusCloseBtn'),
-        oHandle=$('#orusDragHandle'), oDataToggle=$('#orusDataToggle'), oDot=$('#orusDot');
+        oHandle=$('#orusDragHandle'), oDataToggle=$('#orusDataToggle'), oDot=$('#orusDot'),
+        oKeyBtn=$('#orusKeyBtn'), oKeyRow=$('#orusKeyRow'), oKeyInput=$('#orusKeyInput'), oKeySave=$('#orusKeySave');
+
+  function orusOpenKeyRow(){oKeyRow.style.display='flex';oKeyInput.value=orusGetApiKey();oKeyInput.focus()}
+  oKeyBtn.onclick=()=>{oKeyRow.style.display=oKeyRow.style.display==='flex'?'none':'flex';if(oKeyRow.style.display==='flex'){oKeyInput.value=orusGetApiKey();oKeyInput.focus()}};
+  oKeySave.onclick=()=>{
+    const v=oKeyInput.value.trim();
+    orusSetApiKey(v);
+    oKeyRow.style.display='none';
+    orusAddMsg(v?'Listo, guardé tu API key en este navegador. ¡Ya puedes escribirme!':'Borré tu API key de este navegador.','sys');
+  };
+  oKeyInput.addEventListener('keydown',e=>{if(e.key==='Enter')oKeySave.click()});
 
   function orusApplyVisibility(){
     const on=state.settings.orusEnabled!==false;
@@ -6501,11 +6542,17 @@ function orusBoot(){
   }
 
   async function orusCallBackend(contents){
-    const res=await fetch(ORUS_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({contents,tools:ORUS_TOOLS})});
+    const key=orusGetApiKey();
+    if(!key){const e=new Error('Necesito tu API key de Gemini. Toca el ⚙ de arriba para ponerla (es gratis y toma 1 minuto).');e.noKey=true;throw e}
+    const url=`https://generativelanguage.googleapis.com/v1beta/models/${ORUS_MODEL}:generateContent`;
+    const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},
+      body:JSON.stringify({contents,tools:ORUS_TOOLS,
+        systemInstruction:{role:'system',parts:[{text:ORUS_SYSTEM_INSTRUCTION}]},
+        generationConfig:{temperature:0.6,maxOutputTokens:1024}})});
     if(!res.ok){
-      let msg='Orus no pudo responder. Revisa que la función de Netlify y la API key de Gemini estén configuradas.';
-      try{const j=await res.json();if(j&&j.error)msg=j.error}catch(e){}
+      let msg='Orus no pudo responder. Revisa que tu API key de Gemini sea correcta.';
+      try{const j=await res.json();if(j&&j.error&&j.error.message)msg=j.error.message}catch(e){}
+      if(res.status===400||res.status===403)msg+=' (Toca el ⚙ para revisar/cambiar tu API key.)';
       throw new Error(msg);
     }
     return res.json();
@@ -6549,6 +6596,7 @@ function orusBoot(){
     }catch(e){
       thinking.remove();
       orusAddMsg(e.message||'Ocurrió un error contactando a Orus.','sys');
+      if(e.noKey)orusOpenKeyRow();
     }finally{
       orusBusy=false;oSend.disabled=false;oInput.focus();
     }
@@ -6565,7 +6613,13 @@ function orusBoot(){
     orusLoadPos();
     orusApplyVisibility();
     oDataToggle.checked=orusDataAccess();
-    if(orusHistory.length===0)orusAddMsg('¡Hola! Soy Orus 👋 Puedo crear eventos, notas, objetivos y proyectos, cambiar el tema o llevarte a otra sección. ¿En qué te ayudo?','bot');
+    if(orusHistory.length===0){
+      orusAddMsg('¡Hola! Soy Orus 👋 Puedo crear eventos, notas, objetivos y proyectos, cambiar el tema o llevarte a otra sección. ¿En qué te ayudo?','bot');
+      if(!orusGetApiKey()){
+        orusAddMsg('Para responderte necesito una API key gratis de Gemini: toca el ⚙ de arriba, pégala ahí y listo (tarda 1 minuto).','sys');
+        orusOpenKeyRow();
+      }
+    }
   };
 }
 /* orusBoot necesita que #orusBubble/#orusPanel ya existan en el DOM (están después de este
@@ -6579,7 +6633,13 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 <div id="orusPanel">
   <div class="op-head" id="orusDragHandle">
     <div class="op-title">Orus<small>tu asistente en ORUS</small></div>
+    <button class="op-close" id="orusKeyBtn" title="Configurar API key de Gemini" style="font-size:16px;margin-right:2px">⚙</button>
     <button class="op-close" id="orusCloseBtn" title="Cerrar">✕</button>
+  </div>
+  <div class="op-keyrow" id="orusKeyRow">
+    <input id="orusKeyInput" type="password" placeholder="Pega tu API key de Gemini" autocomplete="off" />
+    <button id="orusKeySave">Guardar</button>
+    <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">¿No tienes una? Consíguela gratis ↗</a>
   </div>
   <div id="orusMsgs"></div>
   <div class="op-ctx">
